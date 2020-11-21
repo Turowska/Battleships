@@ -1,0 +1,40 @@
+@startuml
+
+Player o-- Ship
+Board o-- Field
+Player o-- Board
+Game o-- Player
+Ship o-- Field
+
+class Ship {
+  -body_ : vector<Field>
+
+  +GetSize()
+  +GetDirection()
+  +IsAfloat()
+  -FirstField()
+}
+
+class Field {
+  -is_occupied_ : bool
+  -is_hit_ : bool
+  +ShotsFired()
+}
+
+class Game {
+  -players_ : pair<Player>
+  +Move(Player, x, y)
+}
+
+class Board {
+  -fields_: vector<Field>
+  +Shot(x,y)
+}
+
+class Player {
+  -players_board_: Board
+  -players_shots_: Board
+  -players_ships_ : vector<Ship>
+}
+
+@enduml
