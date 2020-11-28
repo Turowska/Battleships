@@ -1,6 +1,8 @@
 #ifndef FIELD_H
 #define FIELD_H
 
+#define BOOST_BIND_GLOBAL_PLACEHOLDERS
+
 #include <boost/python.hpp>
 
 /**
@@ -19,6 +21,15 @@ class Field{
 	bool is_hit_;
 };
 
+using namespace boost::python;
 
+BOOST_PYTHON_MODULE(field){
+	class_<Field>("Field")
+		.def("setIsOccupied", &Field::setIsOccupied)
+		.def("getIsOccupied", &Field::getIsOccupied)
+		.def("getIsHit", &Field::getIsHit)
+		.def("shotField", &Field::shotField)
+	;
+}
 
 #endif //FIELD_H

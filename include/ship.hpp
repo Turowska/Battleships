@@ -1,6 +1,8 @@
 #ifndef SHIP_H
 #define SHIP_H
 
+#define BOOST_BIND_GLOBAL_PLACEHOLDERS
+
 #include <vector>
 
 #include <boost/python.hpp>
@@ -21,5 +23,16 @@ struct Ship{
 	std::vector<int> body_;
 	bool is_afloat_;
 };
+
+using namespace boost::python;
+
+BOOST_PYTHON_MODULE(ship){
+	class_<Ship>("Ship", init < std::vector<int> > ())
+		.def("getSize", &Ship::getSize)
+		.def("getIsAfloat", &Ship::getIsAfloat)
+		.def("sunk", &Ship::sunk)
+		.def("isInField", &Ship::isInField)
+	;
+}
 
 #endif //SHIP_H
