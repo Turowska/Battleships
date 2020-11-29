@@ -4,10 +4,10 @@
 #define BOOST_BIND_GLOBAL_PLACEHOLDERS
 
 #include <array>
-#include <boost/python.hpp>
+//#include <boost/python.hpp>
 #include <utility>
 
-#include "inc/player.h"
+#include "player.h"
 
 class Game {
  public:
@@ -15,14 +15,14 @@ class Game {
        const std::array<bool, 100>& secondPlayersBoard);
   void NextRound();
   bool Shot(int number);
-  bool IsSunk(int number) const;
-  bool IsEnd() const;
+  bool IsSunk(int number);
+  bool IsEnd();
 
  private:
   bool round_;
   std::pair<Player, Player> players_;
 };
-
+/*
 using namespace boost::python;
 
 BOOST_PYTHON_MODULE(game) {
@@ -32,5 +32,5 @@ BOOST_PYTHON_MODULE(game) {
       .def("IsEnd", &Game::IsEnd)
       .def("NextRound", &Game::NextRound);
 }
-
+*/
 #endif  // BATTLESHIPS_LIBCPP_INC_GAME_H_

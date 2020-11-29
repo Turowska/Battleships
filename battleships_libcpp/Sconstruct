@@ -1,0 +1,22 @@
+import os
+import platform
+
+if platform.system() == "Windows":
+    print("Windows!")
+    env = Environment()
+    env.Append(CPPPATH = ['#inc'])
+    env.Append(LINKFLAGS='/SUBSYSTEM:CONSOLE') 
+    env.Append(CXXFLAGS='/EHsc /MD /std:c++17')
+    VariantDir('#/build', '#/src', duplicate=0)
+    resources = Glob("#src/*.cc")
+
+    env.Program( '#/bin/AAL_projekt', resources)
+
+else:
+    print("Linux!")
+    env = Environment()
+    env.Append(CPPPATH = ['#inc'])
+    env.Append(CXXFLAGS='-pedantic -Wall -std=c++17')
+    VariantDir('#/build', '#/src', duplicate=0)
+    resources = Glob("#src/*.cc")
+    env.Program( '#/bin/AAL_projekt', resources)

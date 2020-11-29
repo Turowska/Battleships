@@ -1,4 +1,4 @@
-#include "inc/player.h"
+#include "player.h"
 
 #include <iostream>
 
@@ -20,12 +20,12 @@ Player::Player(const std::array<bool, 100>& fields) : board_(fields) {
 }
 
 bool Player::Shot(int number) {
-  if (!(board_.shot(number))) {
+  if (!(board_.Shot(number))) {
     return false;
   }
   int i = number - 1;
   while (i % 10 != 9 && i != -1 && board_.GetIsOccupied(i)) {
-    if (!board_.getIsHit(i)) {
+    if (!board_.GetIsHit(i)) {
       return true;
     }
     --i;
@@ -33,7 +33,7 @@ bool Player::Shot(int number) {
 
   i = number + 1;
   while (i % 10 != 0 && board_.GetIsOccupied(i)) {
-    if (!board_.getIsHit(i)) {
+    if (!board_.GetIsHit(i)) {
       return true;
     }
     ++i;
@@ -41,14 +41,14 @@ bool Player::Shot(int number) {
 
   i = number - 10;
   while (i >= 0 && board_.GetIsOccupied(i)) {
-    if (!board_.getIsHit(i)) {
+    if (!board_.GetIsHit(i)) {
       return true;
     }
     i -= 10;
   }
   i = number + 10;
   while (i < 100 && board_.GetIsOccupied(i)) {
-    if (!board_.getIsHit(i)) {
+    if (!board_.GetIsHit(i)) {
       return true;
     }
     i += 10;
@@ -59,15 +59,15 @@ bool Player::Shot(int number) {
 
 void Player::Sunk(int number) {
   for (auto i = ships_.begin(); i != ships_.end(); ++i) {
-    if ((*i).isInField(number)) {
-      (*i).sunk();
+    if ((*i).IsInField(number)) {
+      (*i).Sunk();
     }
   }
 }
 
 bool Player::GetIsSunk(int number) {
   for (auto i = ships_.begin(); i != ships_.end(); ++i) {
-    if ((*i).isInField(number)) {
+    if ((*i).IsInField(number)) {
       return (*i).GetIsAfloat();
     }
   }

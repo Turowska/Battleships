@@ -1,4 +1,4 @@
-#include "inc/ship.h"
+#include "ship.h"
 
 Ship::Ship(const std::vector<int> &fields) : is_afloat_(false) {
   body_ = fields;

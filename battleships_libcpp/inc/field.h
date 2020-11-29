@@ -3,7 +3,7 @@
 
 #define BOOST_BIND_GLOBAL_PLACEHOLDERS
 
-#include <boost/python.hpp>
+//#include <boost/python.hpp>
 
 /**
         kontener przechowujący informacje o zajętości pola i oddaniu strzału na
@@ -21,7 +21,7 @@ class Field {
   bool is_occupied_;
   bool is_hit_;
 };
-
+/*
 using namespace boost::python;
 
 BOOST_PYTHON_MODULE(field) {
@@ -31,5 +31,5 @@ BOOST_PYTHON_MODULE(field) {
       .def("GetIsHit", &Field::GetIsHit)
       .def("ShotField", &Field::ShotField);
 }
-
+*/
 #endif  // BATTLESHIPS_LIBCPP_INC_FIELD_H_

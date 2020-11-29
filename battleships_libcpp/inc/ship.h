@@ -3,7 +3,7 @@
 
 #define BOOST_BIND_GLOBAL_PLACEHOLDERS
 
-#include <boost/python.hpp>
+//#include <boost/python.hpp>
 #include <vector>
 
 /**
@@ -23,7 +23,7 @@ struct Ship {
   std::vector<int> body_;
   bool is_afloat_;
 };
-
+/*
 using namespace boost::python;
 
 BOOST_PYTHON_MODULE(ship) {
@@ -33,5 +33,5 @@ BOOST_PYTHON_MODULE(ship) {
       .def("Sunk", &Ship::Sunk)
       .def("IsInField", &Ship::IsInField);
 }
-
+*/
 #endif  // BATTLESHIPS_LIBCPP_INC_SHIP_H_
