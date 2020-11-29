@@ -10,6 +10,7 @@ function GameContainer() {
       <DisplayBoard />
       <Board user="player" />
       <Board user="opponent" />
+      <button>Play</button>
     </div>
   );
 };

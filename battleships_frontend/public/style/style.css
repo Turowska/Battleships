@@ -1,0 +1,117 @@
+.game-container {
+  display: flex;  
+}
+
+.board {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.player-board {
+  background-color: blue;
+}
+
+.empty-field {
+  width: 40px;
+  height: 40px;
+}
+
+.opponent-board {
+  background-color: green;
+}
+
+.display-board {
+  background-color: yellow;
+}
+
+.ship div {
+  width: 40px;
+  height: 40px;
+}
+
+.ship {
+  display: flex;
+}
+
+.submarine-horizontal {
+  width: 80px;
+  height: 40px;
+  background-color: orange;
+  margin: 10px;
+}
+
+.destroyer-horizontal {
+  width: 120px;
+  height: 40px;
+  background-color: green;
+  margin: 10px;
+}
+
+.frigate-horizontal {
+  width: 160px;
+  height: 40px;
+  background-color: aqua;
+  margin: 10px;
+}
+
+.patrol-horizontal {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  margin: 10px;
+}
+
+.carrier-horizontal {
+  width: 200px;
+  height: 40px;
+  background-color: purple;
+  margin: 10px;
+}
+
+.submarine-vertical {
+  width: 40px;
+  height: 80px;
+  background-color: orange;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.destroyer-vertical {
+  width: 40px;
+  height: 120px;
+  background-color: green;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.frigate-vertical {
+  width: 40px;
+  height: 160px;
+  background-color: aqua;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.patrol-vertical {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.carrier-vertical {
+  width: 200px;
+  height: 40px;
+  background-color: purple;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
