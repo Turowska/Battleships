@@ -1,0 +1,24 @@
+import os
+import platform
+
+if platform.system() == "Windows":
+    print("Windows!")
+    env = Environment()
+    env.Append(CPPPATH = ['../inc'])
+    env.Append(LINKFLAGS='/SUBSYSTEM:CONSOLE') 
+    env.Append(CXXFLAGS='/EHsc /MD /std:c++17')
+    VariantDir('./binCPP', '../src', duplicate=0)
+    resources = env.Object(Glob("./binCPP/*.cc"))
+    VariantDir('./binTest', './src', duplicate=0)
+    test = env.Object(Glob("./binTest/*.cc"))
+    env.Program('./Test', [resources, test])
+else:
+    print("Linux!")
+    env = Environment()
+    env.Append(CPPPATH = ['../inc'])
+    env.Append(CXXFLAGS='-pedantic -Wall -std=c++17')
+    VariantDir('./binCPP', '../src', duplicate=0)
+    resources = env.Object(Glob("./binCPP/*.cc"))
+    VariantDir('./binTest', './src', duplicate=0)
+    test = env.Object(Glob("./binTest/*.cc"))
+    env.Program('./Test', [resources, test])

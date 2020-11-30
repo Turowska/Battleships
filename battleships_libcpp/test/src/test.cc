@@ -5,7 +5,7 @@
 #include "field.h"
 #include "game.h"
 #include "player.h"
-#include "ship.hpp"
+#include "ship.h"
 
 BOOST_AUTO_TEST_SUITE(field)
 
@@ -102,7 +102,7 @@ BOOST_AUTO_TEST_CASE(ship_GetIsAfloat) {
 BOOST_AUTO_TEST_CASE(ship_GetIsAfloat_sunk) {
   std::vector<int> vec = {1, 5, 6};
   Ship ship = Ship(vec);
-  ship.sunk();
+  ship.Sunk();
   BOOST_CHECK(ship.GetIsAfloat() == true);
 }
 
@@ -188,7 +188,7 @@ BOOST_AUTO_TEST_CASE(player_endGame1) {
   std::array<bool, 100> board = {false};
   board[45] = true;
   Player player = Player(board);
-  BOOST_CHECK(player.endGame() == false);
+  BOOST_CHECK(player.EndGame() == false);
 }
 
 BOOST_AUTO_TEST_CASE(player_endGame2) {
@@ -196,7 +196,7 @@ BOOST_AUTO_TEST_CASE(player_endGame2) {
   board[45] = true;
   Player player = Player(board);
   BOOST_CHECK(player.Shot(45) == true);
-  BOOST_CHECK(player.endGame() == true);
+  BOOST_CHECK(player.EndGame() == true);
 }
 
 BOOST_AUTO_TEST_CASE(player_endGame3) {
@@ -205,7 +205,7 @@ BOOST_AUTO_TEST_CASE(player_endGame3) {
   board[22] = true;
   Player player = Player(board);
   BOOST_CHECK(player.Shot(45) == true);
-  BOOST_CHECK(player.endGame() == false);
+  BOOST_CHECK(player.EndGame() == false);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -228,7 +228,7 @@ BOOST_AUTO_TEST_CASE(game_Shot_nextRound) {
   firstBoard[30] = true;
   secondBoard[57] = true;
   Game game = Game(firstBoard, secondBoard);
-  game.nextRound();
+  game.NextRound();
   BOOST_CHECK(game.Shot(30) == true);
   BOOST_CHECK(game.Shot(57) == false);
 }
@@ -254,7 +254,7 @@ BOOST_AUTO_TEST_CASE(game_Shot_sunk2) {
   Game game = Game(firstBoard, secondBoard);
   BOOST_CHECK(game.Shot(30) == false);
   BOOST_CHECK(game.Shot(57) == true);
-  game.nextRound();
+  game.NextRound();
   BOOST_CHECK(game.IsSunk(57) == false);
 }
 
