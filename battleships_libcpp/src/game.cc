@@ -1,6 +1,9 @@
+//#define BOOST_BIND_GLOBAL_PLACEHOLDERS
 #include "game.h"
 
 #include <iostream>
+
+//#include <boost/python.hpp>
 
 Game::Game(const std::array<bool, 100>& firstPlayersBoard,
            const std::array<bool, 100>& secondPlayersBoard)
@@ -26,3 +29,13 @@ bool Game::IsSunk(int number) {
 bool Game::IsEnd() {
   return (players_.first.EndGame() || players_.second.EndGame());
 }
+/*
+using namespace boost::python;
+
+BOOST_PYTHON_MODULE(libgame) {
+  class_<Game>("Game", init<std::array<bool, 100>, std::array<bool, 100> >())
+      .def("IsSunk", &Game::IsSunk)
+      .def("Shot", &Game::Shot)
+      .def("IsEnd", &Game::IsEnd)
+      .def("NextRound", &Game::NextRound);
+}*/
