@@ -29,8 +29,7 @@ const PlayerBoard = () => {
   const onDrop = e => {
     e.preventDefault();
     const dropped = e.target.id;
-    let newPlayerBoard = [...playerBoard];
-    
+    let newPlayerBoard = [...playerBoard];    
     if(draggedShip.direction == 'horizontal') {
       if(validatePlacementHorizontally(dropped, draggedShip)) {
         for (let index = 0; index <= draggedShip.length; index++) {
