@@ -1,5 +1,5 @@
 .game-container {
-  display: flex;  
+  display: flex;
 }
 
 .board {
@@ -10,6 +10,18 @@
   margin: 20px;
 }
 
+.header {
+  text-align: center;
+  vertical-align: middle;
+  background-color: coral;
+}
+
+.footer {
+  text-align: center;
+  vertical-align: middle;
+  background-color: coral;
+}
+
 .player-board {
   background-color: blue;
 }
@@ -17,6 +29,18 @@
 .empty-field {
   width: 40px;
   height: 40px;
+}
+
+.missed {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+}
+
+.hit {
+  width: 40px;
+  height: 40px;
+  background-color: red;
 }
 
 .opponent-board {
@@ -39,43 +63,73 @@
 .submarine-horizontal {
   width: 80px;
   height: 40px;
-  background-color: orange;
   margin: 10px;
+  background-color: orange;
+}
+
+.submarine-field {
+  width: 40px;
+  height: 40px;
+  background-color: orange;
 }
 
 .destroyer-horizontal {
   width: 120px;
   height: 40px;
-  background-color: green;
   margin: 10px;
+  background-color: green;
+}
+
+.destroyer-field {
+  width: 40px;
+  height: 40px;
+  background-color: green;
 }
 
 .frigate-horizontal {
   width: 160px;
   height: 40px;
-  background-color: aqua;
   margin: 10px;
+  background-color: aqua;
+}
+
+.frigate-field {
+  width: 40px;
+  height: 40px;
+  background-color: aqua;
 }
 
 .patrol-horizontal {
   width: 40px;
   height: 40px;
-  background-color: red;
   margin: 10px;
+  background-color: red;
+}
+
+.patrol-field {
+  width: 40px;
+  height: 40px;
+  background-color: red;
 }
 
 .carrier-horizontal {
   width: 200px;
   height: 40px;
-  background-color: purple;
   margin: 10px;
+  background-color: purple;
+}
+
+.carrier-field {
+  width: 40px;
+  height: 40px;
+  background-color: purple;
 }
 
 .submarine-vertical {
   width: 40px;
   height: 80px;
-  background-color: orange;
   margin: 10px;
+  background-color: orange;
   display: flex;
   flex-wrap: wrap;
 }
@@ -83,8 +137,8 @@
 .destroyer-vertical {
   width: 40px;
   height: 120px;
-  background-color: green;
   margin: 10px;
+  background-color: green;
   display: flex;
   flex-wrap: wrap;
 }
@@ -92,8 +146,8 @@
 .frigate-vertical {
   width: 40px;
   height: 160px;
-  background-color: aqua;
   margin: 10px;
+  background-color: aqua;
   display: flex;
   flex-wrap: wrap;
 }
@@ -101,8 +155,8 @@
 .patrol-vertical {
   width: 40px;
   height: 40px;
-  background-color: red;
   margin: 10px;
+  background-color: red;
   display: flex;
   flex-wrap: wrap;
 }
@@ -110,8 +164,8 @@
 .carrier-vertical {
   width: 200px;
   height: 40px;
-  background-color: purple;
   margin: 10px;
+  background-color: purple;
   display: flex;
   flex-wrap: wrap;
 }
