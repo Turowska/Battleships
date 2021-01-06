@@ -1,15 +1,16 @@
 import React from "react"
-import Board from "./Board";
-import Borad from "./Board"
+import PlayerBoard from "./PlayerBoard";
+import OpponentBorad from "./OpponentBoard"
 import DisplayBoard from "./DisplayBoard";
 import Notifications from "./Notifications"
 
-function GameContainer() {
+const GameContainer = () => {
+
   return (
     <div className="game-container">
       <DisplayBoard />
-      <Board user="player" />
-      <Board user="opponent" />
+      <PlayerBoard />
+      <OpponentBorad/>
       <button>Play</button>
     </div>
   );
