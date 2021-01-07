@@ -22,19 +22,14 @@ class Game {
 	Game(const std::array<bool, 100>& firstPlayersBoard,
        const std::array<bool, 100>& secondPlayersBoard);
 	/**
-	* @brief zmiana gracza wykonującego ruch
-	*
-	* metoda zmienia wartość pola @see round_ na przeciwny
-	*/
-	void NextRound();
-	/**
 	* @brief wykonanie strzału
 	*
-	* gracz, którego kolej (określona za pomocą pola @see round_) wykonuje sprawdzenie danego pola z planszy przeciwnika
+	* gracz wykonuje sprawdzenie danego pola z planszy przeciwnika, możliwa zamiana gracza wykonującego ruch, tzn. wartości pola @see round_
 	* @param index pola
+	* @param index określający gracza wykonującego ruch
 	* @return true - na danym polu był statek przeciwnika; false - na danym polu nie było statku przeciwnika
 	*/
-	bool Shot(int number);
+	bool Shot(int number, int player);
 	/**
 	* @brief czy statek został zatopiony
 	*
@@ -50,6 +45,13 @@ class Game {
 	* @return true - nastąpił koniec gry; false - nie nastąpił jeszcze koniec gry
 	*/
 	bool IsEnd();
+	/**
+	* @brief czy wystąpiły błędy
+	*
+	* metoda sprawdza czy w trakcie działania programu wystąpiły błędy, którego mogą skutkować łamaniem zasad gry
+	* @return true - nie wystąpiły błędy; false - wystąpiły błędy
+	*/
+	bool IsGood();
 
     private:
 	/**
@@ -59,6 +61,13 @@ class Game {
 	* false - ruch wykonuje gracz drugi
 	*/
 	bool round_;
+	/**
+	* @brief pole przechowuje informacje, czy wystąpiły w trakcie działanie programu błędy
+	*
+	* true - nie wystąpiły błędy
+	* false - wystąpiły błędy
+	*/
+	bool isGood_;
 	/**
 	* @brief plansze graczy
 	*

@@ -7,16 +7,17 @@
 
 Game::Game(const std::array<bool, 100>& firstPlayersBoard,
            const std::array<bool, 100>& secondPlayersBoard)
-    : round_(true),
+    : round_(true), isGood_(true),
       players_(Player(firstPlayersBoard), Player(secondPlayersBoard)) {}
 
-void Game::NextRound() { round_ = !round_; }
-
-bool Game::Shot(int number) {
-  if (round_) {
+bool Game::Shot(int number, int player) {
+  if(player==1){
+    round_ = true;
     return players_.second.Shot(number);
+  } else {
+    round_ = false;
+    return players_.first.Shot(number);
   }
-  return players_.first.Shot(number);
 }
 
 bool Game::IsSunk(int number) {
@@ -29,13 +30,7 @@ bool Game::IsSunk(int number) {
 bool Game::IsEnd() {
   return (players_.first.EndGame() || players_.second.EndGame());
 }
-/*
-using namespace boost::python;
 
-BOOST_PYTHON_MODULE(libgame) {
-  class_<Game>("Game", init<std::array<bool, 100>, std::array<bool, 100> >())
-      .def("IsSunk", &Game::IsSunk)
-      .def("Shot", &Game::Shot)
-      .def("IsEnd", &Game::IsEnd)
-      .def("NextRound", &Game::NextRound);
-}*/
+bool Game::IsGood(){
+  return isGood_;
+}

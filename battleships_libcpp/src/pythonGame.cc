@@ -7,24 +7,21 @@ using namespace boost::python;
 
 PythonGame::PythonGame(list tabListFirstPlayer, list tabListSecondPlayer){
 	if(len(tabListFirstPlayer)!=100||len(tabListSecondPlayer)!=100){
-		std::cout<<"zamale tablice\n";
-		return;
+		isGood_ = false;
+	} else {
+		std::array<bool, 100> tabArrayFirstPlayer;
+		std::array<bool, 100> tabArraySecondPlayer;
+		for(int i = 0; i < 100; ++i){
+			tabArrayFirstPlayer[i] = extract<bool>(tabListFirstPlayer[i]);
+			tabArraySecondPlayer[i] = extract<bool>(tabListSecondPlayer[i]);
+		} 
+		game_ = new Game(tabArrayFirstPlayer, tabArraySecondPlayer);
+		isGood_ = game_->IsGood();
 	}
-	std::array<bool, 100> tabArrayFirstPlayer;
-	std::array<bool, 100> tabArraySecondPlayer;
-	for(int i = 0; i < 100; ++i){
-		tabArrayFirstPlayer[i] = extract<bool>(tabListFirstPlayer[i]);
-		tabArraySecondPlayer[i] = extract<bool>(tabListSecondPlayer[i]);
-	} 
-	game_ = new Game(tabArrayFirstPlayer, tabArraySecondPlayer);
 }
 
-void PythonGame::NextRound(){
-	game_->NextRound();
-}
-
-bool PythonGame::Shot(int number){
-	return game_->Shot(number);
+bool PythonGame::Shot(int number, int player){
+	return game_->Shot(number, player);
 }
 
 bool PythonGame::IsSunk(int number){
@@ -39,11 +36,15 @@ bool PythonGame::IsEnd(){
 	return false;
 }
 
+bool PythonGame::IsGood(){
+	return isGood_;
+}
+
 BOOST_PYTHON_MODULE(libpythonGame) {
   class_<PythonGame>("Game", init< list, list >())
       .def("IsSunk", &PythonGame::IsSunk)
       .def("Shot", &PythonGame::Shot)
       .def("IsEnd", &PythonGame::IsEnd)
-      .def("NextRound", &PythonGame::NextRound);
+      .def("IsGood", &PythonGame::IsGood);
 }
 

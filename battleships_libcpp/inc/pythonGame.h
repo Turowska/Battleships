@@ -23,19 +23,14 @@ class PythonGame{
 	*/
 	PythonGame(list tabListFirstPlayer, list tabListSecondPlayer);
 	/**
-	* @brief wywoływana z poziomu pythona jako NextRound()
+	* @brief wywoływana z poziomu pythona jako Shot(int, int)
 	*
-	* metoda wywołuje metodę @see Game::NextRound()
-	*/
-	void NextRound();
-	/**
-	* @brief wywoływana z poziomu pythona jako Shot(int)
-	*
-	* metoda wywołuje i zwraca wartość zwracaną przez metodę @see Game::Shot() przekazując jako argument index pola
+	* metoda wywołuje i zwraca wartość zwracaną przez metodę @see Game::Shot() przekazując jako argument index pola i gracza
 	* @param index pola, które ma zostać sprawdzone
+	* @param index gracza wykonującego ruch
 	* @return true - pole jest zajęte; false - pole jest wolne
 	*/
-	bool Shot(int number);
+	bool Shot(int number, int player);
 	/**
 	* @brief wywoływana z poziomu pythona jako IsSunk(int)
 	*
@@ -51,12 +46,26 @@ class PythonGame{
 	* @return true - koniec gry; false - nie nastąpił jeszcze koniec gry
 	*/
 	bool IsEnd();
+	/**
+	* @brief wywoływana z poziomu pythona jako IsGood()
+	*
+	* metoda sprawdza czy w trakcie działania programu wystąpiły błędy, którego mogą skutkować łamaniem zasad gry
+	* @return true - nie wystąpiły błędy; false - wystąpiły błędy
+	*/
+	bool IsGood();
 
     private:
 	/**
 	* @brief wskaźnik na oryginalny obiekt do którego kontrolowany jest dostęp
 	*/
 	Game* game_;
+	/**
+	* @brief pole przechowuje informacje, czy wystąpiły w trakcie działanie programu błędy
+	*
+	* true - nie wystąpiły błędy
+	* false - wystąpiły błędy
+	*/
+	bool isGood_;
 
 };
 

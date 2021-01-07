@@ -11,10 +11,10 @@ class Ship {
   -is_afloat_ : bool
 
   +Ship(vector<int> &fields)
-  +int getSize()
-  +bool getIsAfloat()
-  +void sunk()
-  +bool isInField(int number)
+  +int GetSize()
+  +bool GetIsAfloat()
+  +void Sunk()
+  +bool IsInField(int number)
 }
 
 class Field {
@@ -22,21 +22,22 @@ class Field {
   -is_hit_ : bool
 
   +Field()
-  +void setIsOccupied(bool is_occupied)
-  +bool getIsOccupied()
-  +bool getIsHit()
-  +bool shotField()
+  +void SetIsOccupied(bool is_occupied)
+  +bool GetIsOccupied()
+  +bool GetIsHit()
+  +bool ShotField()
 }
 
 class Game {
   -players_ : pair<Player, Player>
   -round_ : bool
+  -isGood_ : bool
 
   +Game(array<bool, 100> firstPlayersBoard, array<bool, 100> secondPlayersBoard)
-  +void nextRound()
-  +bool shot(int number)
-  +bool isSunk(int number)
-  +bool isEnd()
+  +bool IsGood()
+  +bool Shot(int number, int player)
+  +bool IsSunk(int number)
+  +bool IsEnd()
 }
 
 class Board {
