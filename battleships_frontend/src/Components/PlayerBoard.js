@@ -42,7 +42,6 @@ const PlayerBoard = () => {
       if(validatePlacementVertically(dropped, draggedShip)) {
         for (let index = 0; index <= draggedShip.length; index++) {
           const idx = parseInt(dropped) + parseInt(index) * 10 - parseInt(draggedShip.grabbedIdx) * 10;
-          console.log(idx);
           newPlayerBoard[idx].fieldState = "ship " + draggedShip.type + "-field";
         }
         changePlayerBoard(newPlayerBoard);

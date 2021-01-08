@@ -2,16 +2,41 @@ import React from "react"
 import PlayerBoard from "./PlayerBoard";
 import OpponentBorad from "./OpponentBoard"
 import DisplayBoard from "./DisplayBoard";
-import Notifications from "./Notifications"
+import io from 'socket.io-client'
+import { useGlobalContext } from "./context";
+import Notifications from "./Notifications";
+
+
+const convertBoardToBool = (board) => {
+  const retv = board.map((field) => { 
+    if(field.fieldState === 'empty-field') {
+      return true
+    } else {
+      return false
+    }
+  })
+
+  return retv;
+}
 
 const GameContainer = () => {
 
+  const { playerBoard, socket } = useGlobalContext();
+
+  const joinGame = () => {
+    console.log("joined Game");
+    socket.emit('join', convertBoardToBool(playerBoard));
+  }
+
   return (
     <div className="game-container">
+      <Notifications />
       <DisplayBoard />
-      <PlayerBoard />
+      <PlayerBoard/>
       <OpponentBorad/>
-      <button>Play</button>
+      <button onClick={joinGame}>
+        Play
+      </button>
     </div>
   );
 };
