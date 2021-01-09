@@ -8,7 +8,7 @@ const Ship = ({id}) => {
 
   const {draggedShip, setDraggedShip} = useGlobalContext();
 
-  const [direction, setDirection] = useState('vertical')
+  const [direction, setDirection] = useState('horizontal')
   const type = ships[id].type;
   const length = ships[id].length;
 

@@ -3,21 +3,12 @@ import { useGlobalContext } from "./context";
 
 const OpponentField = ({field}) => {
   
-  const {id, isChecked, isOccupied} = field;
-
-  let fieldStyle;
-
-  if(!isChecked) {
-    fieldStyle = 'empty-field'
-  } else {
-    fieldStyle = isOccupied === "empty" ? 'missed' : "hit";
-  }
-
+  const {id, fieldState} = field;
   
   return (
     <div 
       id={id} 
-      className={fieldStyle}
+      className={fieldState}
     />
   );
 };

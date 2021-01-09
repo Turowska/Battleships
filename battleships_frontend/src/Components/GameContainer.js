@@ -24,19 +24,21 @@ const GameContainer = () => {
   const { playerBoard, socket } = useGlobalContext();
 
   const joinGame = () => {
-    console.log("joined Game");
     socket.emit('join', convertBoardToBool(playerBoard));
   }
 
   return (
     <div className="game-container">
-      <Notifications />
+      {/* <Notifications /> */}
       <DisplayBoard />
       <PlayerBoard/>
       <OpponentBorad/>
-      <button onClick={joinGame}>
+      <button className="btn" onClick={joinGame}>
         Play
-      </button>
+      </button >
+      {/* <button className="btn">
+        Reset Board
+      </button> */}
     </div>
   );
 };

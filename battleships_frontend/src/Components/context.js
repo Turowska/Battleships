@@ -18,6 +18,7 @@ const AppProvider = ({children}) => {
   const [playerNumber, setPlayerNumber] = useState(-1);
   const [socket, setSocket] = useState(null);
   const [socketConnected, setSocketConnected] = useState(false)
+  const [playerTurn, setPlayerTurn] = useState(-2);
 
 
   useEffect(() => {
@@ -48,6 +49,18 @@ const AppProvider = ({children}) => {
       }
     })
 
+    socket.on('player-turn', (number) => {
+      setPlayerTurn(parseInt(number));
+    })
+
+    socket.on('fire', (object) => {
+      const {hit, field} = object;
+      const newState = hit ? "hit" : "missed";
+      let newPlayerBoard = [...playerBoard];
+      newPlayerBoard[field].fieldState = newState;
+      changePlayerBoard(newPlayerBoard);
+    })
+
   }, [socket])
 
 
@@ -68,6 +81,7 @@ const AppProvider = ({children}) => {
       draggedShip,
       setDraggedShip,
       playerNumber,
+      playerTurn,
       socket
     }}>
     {children}
