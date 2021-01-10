@@ -1,4 +1,6 @@
+#!/usr/bin/python
 import socketio
+import pythonGame
 
 sio = socketio.Server(cors_allowed_origins='http://localhost:3000')
 app = socketio.WSGIApp(sio)
