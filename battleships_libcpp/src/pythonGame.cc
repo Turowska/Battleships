@@ -40,7 +40,7 @@ bool PythonGame::IsGood(){
 	return isGood_;
 }
 
-BOOST_PYTHON_MODULE(libpythonGame) {
+BOOST_PYTHON_MODULE(pythonGame) {
   class_<PythonGame>("Game", init< list, list >())
       .def("IsSunk", &PythonGame::IsSunk)
       .def("Shot", &PythonGame::Shot)
