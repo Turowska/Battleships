@@ -1,57 +1,35 @@
 import os
-import shutil
 import platform
+import shutil
 
-# BOOSTPATH = '/home/shades/boost_1_75_0'
-# PYTHONPATH = '/usr/include/python3.8/'
-# BOOSTLIBPATH = '/usr/local/lib/'
-# TARGET = "libpythonGame.so"
+BOOSTPATH = '/usr/local/boost_1_75_0'
+PYTHONPATH = '/usr/include/python3.8'
+BOOSTLIBPATH = '/usr/local/boost_1_75_0/stage/lib'
+PYTHONLIBPATH = '/usr/lib/python3.8'
 
-# if platform.system() == "Windows":
-#     print("Windows!")
-#     env = Environment()
-#     env.Append(CPPPATH=['../inc', BOOSTPATH, PYTHONPATH])
-#     env.Append(LINKFLAGS='/SUBSYSTEM:CONSOLE')
-#     env.Append(CXXFLAGS='/EHsc /MD /std:c++17')
-#     env.Append(LIBPATH=[BOOSTLIBPATH])
-#     VariantDir('#/../object', '#/../src', duplicate=0)
-#     env.SharedLibrary(
-#         '#/../pythonGame', , LIBS=['boost_python38', 'python3.8'])
-# else:
-#     print("Linux!")
-#     env = Environment()
-#     env.Append(CPPPATH=['../inc', BOOSTPATH, PYTHONPATH])
-#     env.Append(CXXFLAGS='-pedantic -Wall -std=c++17')
-#     env.Append(LIBPATH=[BOOSTLIBPATH])
-#     VariantDir('#/../object', '#/../src', duplicate=0)
-#     dll = env.SharedLibrary(
-#         '#/../pythonGame', [Glob('#/../object/*.cc')], LIBS=['boost_python38', 'python3.8'])
+def build_link_to_lib( target, source, env):
+   '''tworzy link (symboliczny) do biblioteki - uzywany w serwerze'''
+   shutil.copy( str(source[0]), str(target[0]) )
+   return
 
-
-# def build_link_to_lib(target, source, env):
-#     shutil.copy(str(source[0]), str(target[0]))
-#     return
-
-
-# env.Command(TARGET, dll, build_link_to_lib)
-
-
-e = Environment()
-
-if(platform.system() == "Linux"):
-    e.Append(CPPFLAGS='-Wall -pedantic -pthread -Wno-long-long')
-    e.Append(LINKFLAGS='-Wall -pthread')
-    e.Append(CPPPATH=['/usr/include/python3.8'])
-    e.Append(LIBPATH=['/usr/lib/python3.8'])
-    e.Append(LIBS=['boost_python38'])
-
+if platform.system() == "Windows":
+    print("Windows!")
+    target = 'pythonGame.pyd'
+    env = Environment()
+    env.Append(CPPPATH = ['../inc', BOOSTPATH, PYTHONPATH])
+    env.Append(LINKFLAGS='/SUBSYSTEM:CONSOLE')
+    env.Append(CXXFLAGS='/EHsc /MD /std:c++17')
+    env.Append(LIBPATH = [BOOSTLIBPATH, PYTHONLIBPATH])
+    VariantDir('#/../object', '#/../src', duplicate=0)
+    dll = env.SharedLibrary('#/../pythonGame', [Glob('#/../object/*.cc')], LIBS = ['boost_python38'])
+    env.Command(target, dll, build_link_to_lib )
+else:
+    print("Linux!")
     target = 'pythonGame.so'
-
-
-def build_link_to_lib(target, source, env):
-    shutil.copy(str(source[0]), str(target[0]))
-    return
-
-
-dll = e.SharedLibrary(source=[Glob('#/../object/*.cc')], target='pythonGame')
-e.Command(target, dll, build_link_to_lib)
+    env = Environment()
+    env.Append(CPPPATH = ['../inc', BOOSTPATH, PYTHONPATH])
+    env.Append(CXXFLAGS='-pedantic -Wall -std=c++17')
+    env.Append(LIBPATH = [BOOSTLIBPATH, PYTHONLIBPATH])
+    VariantDir('#/../object', '#/../src', duplicate=0)
+    dll= env.SharedLibrary('#/../pythonGame', [Glob('#/../object/*.cc')], LIBS = ['boost_python38'])
+    env.Command(target, dll, build_link_to_lib )
