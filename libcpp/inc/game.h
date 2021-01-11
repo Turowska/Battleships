@@ -2,6 +2,7 @@
 #define BATTLESHIPS_LIBCPP_INC_GAME_H_
 
 #include <array>
+#include <vector>
 #include <utility>
 
 #include "player.h"
@@ -24,20 +25,22 @@ class Game {
 	/**
 	* @brief wykonanie strzału
 	*
-	* gracz wykonuje sprawdzenie danego pola z planszy przeciwnika, możliwa zamiana gracza wykonującego ruch, tzn. wartości pola @see round_
+	* gracz wykonuje sprawdzenie danego pola z planszy przeciwnika, możliwa zamiana gracza wykonującego ruch, tzn. wartości pola round_
 	* @param index pola
 	* @param index określający gracza wykonującego ruch
 	* @return true - na danym polu był statek przeciwnika; false - na danym polu nie było statku przeciwnika
+	* @see round_
 	*/
 	bool Shot(int number, int player);
 	/**
 	* @brief czy statek został zatopiony
 	*
-	* metoda sprawdza, czy statek przeciwnika gracza, którego kolej (określona za pomocą pola @see round_), znajdujący się między innymi na danym polu, został zatopiony
+	* metoda sprawdza, czy statek przeciwnika gracza, którego kolej (określona za pomocą pola round_), znajdujący się między innymi na danym polu, został zatopiony
 	* @param index pola
-	* @return true - statek został zatopiony; flase - statek nie został zatopiony
+	* @return vektor indexów pól na których leży zatopiony statek, pusty, jeśli nie zatopiony, lub nie ma statku
+	* @see round_
 	*/
-	bool IsSunk(int number);
+	std::vector<int> IsSunk(int number);
 	/**
 	* @brief czy koniec gry
 	*

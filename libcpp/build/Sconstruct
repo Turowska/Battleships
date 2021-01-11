@@ -21,7 +21,7 @@ if platform.system() == "Windows":
     env.Append(CXXFLAGS='/EHsc /MD /std:c++17')
     env.Append(LIBPATH = [BOOSTLIBPATH, PYTHONLIBPATH])
     VariantDir('#/../object', '#/../src', duplicate=0)
-    dll = env.SharedLibrary('#/../pythonGame', [Glob('#/../object/*.cc')], LIBS = ['boost_python38'])
+    dll = env.SharedLibrary('pythonGame', [Glob('#/../object/*.cc')], LIBS = ['boost_python38'])
     env.Command(target, dll, build_link_to_lib )
 else:
     print("Linux!")
@@ -31,5 +31,5 @@ else:
     env.Append(CXXFLAGS='-pedantic -Wall -std=c++17')
     env.Append(LIBPATH = [BOOSTLIBPATH, PYTHONLIBPATH])
     VariantDir('#/../object', '#/../src', duplicate=0)
-    dll= env.SharedLibrary('#/../pythonGame', [Glob('#/../object/*.cc')], LIBS = ['boost_python38'])
+    dll= env.SharedLibrary('pythonGame', [Glob('#/../object/*.cc')], LIBS = ['boost_python38'])
     env.Command(target, dll, build_link_to_lib )

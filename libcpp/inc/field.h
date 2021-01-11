@@ -12,35 +12,42 @@ class Field {
 	/**
 	* @brief konstruktor tworzący niezajęte i niesprawdzone pole
 	*
-	* konstruktor, ustawia wartość pól @see is_occupied_ i @see is_hit_ na false
+	* konstruktor, ustawia wartość pól is_occupied_ i is_hit_ na false
+	* @see is_occupied_
+	* @see is_hit_
 	*/
 	Field();
 	/**
 	* @brief zajmuje i zwalnia pole
 	*
-	* metoda ustawia wartość pola @see is_occupied_
-	* @param is_occupied wartość jaka ma zostać przypisana polu @see is_occupied_
+	* metoda ustawia wartość pola is_occupied_
+	* @param is_occupied wartość jaka ma zostać przypisana polu is_occupied_
+	* @see is_occupied_
 	*/
 	void SetIsOccupied(bool is_occupied);
 	/**
 	* @brief sprawdza zajętość pola
 	*
-	* metoda sprawdza wartość pola @see is_occupied_
-	* @return wartość pola @see is_occupied_
+	* metoda sprawdza wartość pola is_occupied_
+	* @return wartość pola is_occupied_
+	* @see is_occupied_
 	*/
 	bool GetIsOccupied() const;
 	/**
 	* @brief sprawdza czy pole zostało sprawdzone
 	*
-	* metoda sprawdza wartość pola @see is_hit_
-	* @return wartość pola @see is_hit_
+	* metoda sprawdza wartość pola is_hit_
+	* @return wartość pola is_hit_
+	* @see is_hit_
 	*/
 	bool GetIsHit() const;
 	/**
 	* @brief sprawdza pole
 	*
-	* metoda ustwaia pole @see is_hit_ na true i sprawdza wartość pola @see is_occupied_
-	* @return wartość pola @see is_occupied_
+	* metoda ustwaia pole is_hit_ na true i sprawdza wartość pola is_occupied_
+	* @return wartość pola is_occupied_
+	* @see is_hit_
+	* @see is_occupied_
 	*/
 	bool ShotField();
 

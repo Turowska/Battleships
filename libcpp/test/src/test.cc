@@ -119,12 +119,11 @@ BOOST_AUTO_TEST_SUITE(player)
 
 BOOST_AUTO_TEST_CASE(player_GetIsSunk1) {
   std::array<bool, 100> board = {false};
-  board[0] = true;
   board[1] = true;
   board[2] = true;
   Player player = Player(board);
-  BOOST_CHECK(player.GetIsSunk(2) == false);
-  BOOST_CHECK(player.GetIsSunk(36) == false);
+  BOOST_CHECK(player.GetIsSunk(2).size() == 0);
+  BOOST_CHECK(player.GetIsSunk(36).size() == 0);
 }
 
 BOOST_AUTO_TEST_CASE(player_Shot_GetIsSunk1) {
@@ -134,7 +133,7 @@ BOOST_AUTO_TEST_CASE(player_Shot_GetIsSunk1) {
   board[2] = true;
   Player player = Player(board);
   BOOST_CHECK(player.Shot(1) == true);
-  BOOST_CHECK(player.GetIsSunk(1) == false);
+  BOOST_CHECK(player.GetIsSunk(1).size() == 0);
 }
 
 BOOST_AUTO_TEST_CASE(player_Shot1) {
@@ -146,7 +145,7 @@ BOOST_AUTO_TEST_CASE(player_Shot1) {
   BOOST_CHECK(player.Shot(1) == true);
   BOOST_CHECK(player.Shot(0) == true);
   BOOST_CHECK(player.Shot(2) == true);
-  BOOST_CHECK(player.GetIsSunk(0) == true);
+  BOOST_CHECK(player.GetIsSunk(0).size() == 3);
 }
 
 BOOST_AUTO_TEST_CASE(player_Shot_GetIsSunk2) {
@@ -155,7 +154,7 @@ BOOST_AUTO_TEST_CASE(player_Shot_GetIsSunk2) {
   board[89] = true;
   Player player = Player(board);
   BOOST_CHECK(player.Shot(99) == true);
-  BOOST_CHECK(player.GetIsSunk(99) == false);
+  BOOST_CHECK(player.GetIsSunk(99).size() == 0);
 }
 
 BOOST_AUTO_TEST_CASE(player_Shot2) {
@@ -165,7 +164,7 @@ BOOST_AUTO_TEST_CASE(player_Shot2) {
   Player player = Player(board);
   BOOST_CHECK(player.Shot(99) == true);
   BOOST_CHECK(player.Shot(89) == true);
-  BOOST_CHECK(player.GetIsSunk(99) == true);
+  BOOST_CHECK(player.GetIsSunk(99).size() == 2);
 }
 
 BOOST_AUTO_TEST_CASE(player_Shot3) {
@@ -173,7 +172,7 @@ BOOST_AUTO_TEST_CASE(player_Shot3) {
   board[45] = true;
   Player player = Player(board);
   BOOST_CHECK(player.Shot(45) == true);
-  BOOST_CHECK(player.GetIsSunk(45) == true);
+  BOOST_CHECK(player.GetIsSunk(45).size() == 1);
 }
 
 BOOST_AUTO_TEST_CASE(player_Shot4) {
@@ -181,7 +180,7 @@ BOOST_AUTO_TEST_CASE(player_Shot4) {
   board[45] = true;
   Player player = Player(board);
   BOOST_CHECK(player.Shot(46) == false);
-  BOOST_CHECK(player.GetIsSunk(46) == false);
+  BOOST_CHECK(player.GetIsSunk(46).size() == 0);
 }
 
 BOOST_AUTO_TEST_CASE(player_endGame1) {
@@ -206,6 +205,37 @@ BOOST_AUTO_TEST_CASE(player_endGame3) {
   Player player = Player(board);
   BOOST_CHECK(player.Shot(45) == true);
   BOOST_CHECK(player.EndGame() == false);
+}
+
+BOOST_AUTO_TEST_CASE(player_isGood1) {
+  std::array<bool, 100> board = {false};
+  Player player = Player(board);
+  BOOST_CHECK(player.IsGood() == true);
+}
+
+BOOST_AUTO_TEST_CASE(player_isGood2) {
+  std::array<bool, 100> board = {false};
+  board[0] = true;
+  board[11] = true;
+  Player player = Player(board);
+  BOOST_CHECK(player.IsGood() == false);
+}
+
+BOOST_AUTO_TEST_CASE(player_isGood3) {
+  std::array<bool, 100> board = {false};
+  board[2] = true;
+  board[11] = true;
+  Player player = Player(board);
+  BOOST_CHECK(player.IsGood() == false);
+}
+
+BOOST_AUTO_TEST_CASE(player_isGood4) {
+  std::array<bool, 100> board = {false};
+  board[2] = true;
+  board[12] = true;
+  board[3] = true;
+  Player player = Player(board);
+  BOOST_CHECK(player.IsGood() == false);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -250,9 +280,10 @@ BOOST_AUTO_TEST_CASE(game_Shot_sunk1) {
   Game game = Game(firstBoard, secondBoard);
   BOOST_CHECK(game.Shot(30, 1) == false);
   BOOST_CHECK(game.Shot(57, 1) == true);
-  BOOST_CHECK(game.IsSunk(30) == false);
-  BOOST_CHECK(game.IsSunk(57) == true);
-  BOOST_CHECK(game.IsSunk(40) == false);
+  BOOST_CHECK(game.IsSunk(30).size() == 0);
+  BOOST_CHECK(game.IsSunk(57).size() == 1);
+  BOOST_CHECK(game.IsSunk(57)[0] == 57);
+  BOOST_CHECK(game.IsSunk(40).size() == 0);
 }
 
 BOOST_AUTO_TEST_CASE(game_Shot_sunk2) {
@@ -263,7 +294,7 @@ BOOST_AUTO_TEST_CASE(game_Shot_sunk2) {
   Game game = Game(firstBoard, secondBoard);
   BOOST_CHECK(game.Shot(57, 1) == true);
   BOOST_CHECK(game.Shot(30, 2) == true);
-  BOOST_CHECK(game.IsSunk(57) == false);
+  BOOST_CHECK(game.IsSunk(57).size() == 0);
 }
 
 BOOST_AUTO_TEST_CASE(game_Shot_sunk3) {
@@ -273,9 +304,9 @@ BOOST_AUTO_TEST_CASE(game_Shot_sunk3) {
   secondBoard[89] = true;
   Game game = Game(firstBoard, secondBoard);
   BOOST_CHECK(game.Shot(99, 1) == true);
-  BOOST_CHECK(game.IsSunk(99) == false);
+  BOOST_CHECK(game.IsSunk(99).size() == 0);
   BOOST_CHECK(game.Shot(89, 1) == true);
-  BOOST_CHECK(game.IsSunk(99) == true);
+  BOOST_CHECK(game.IsSunk(99).size() == 2);
 }
 
 BOOST_AUTO_TEST_CASE(game_Shot_sunk4) {
@@ -285,9 +316,9 @@ BOOST_AUTO_TEST_CASE(game_Shot_sunk4) {
   secondBoard[1] = true;
   Game game = Game(firstBoard, secondBoard);
   BOOST_CHECK(game.Shot(1, 1) == true);
-  BOOST_CHECK(game.IsSunk(1) == false);
+  BOOST_CHECK(game.IsSunk(1).size() == 0);
   BOOST_CHECK(game.Shot(0, 1) == true);
-  BOOST_CHECK(game.IsSunk(1) == true);
+  BOOST_CHECK(game.IsSunk(1).size() == 2);
 }
 
 BOOST_AUTO_TEST_CASE(game_end1) {
@@ -324,10 +355,67 @@ BOOST_AUTO_TEST_CASE(game_end4) {
   BOOST_CHECK(game.IsEnd() == true);
 }
 
-BOOST_AUTO_TEST_CASE(is_good) {
+BOOST_AUTO_TEST_CASE(is_good1) {
   std::array<bool, 100> firstBoard = {false};
   std::array<bool, 100> secondBoard = {false};
   Game game = Game(firstBoard, secondBoard);
   BOOST_CHECK(game.IsGood() == true);
 }
+
+BOOST_AUTO_TEST_CASE(is_good2) {
+  std::array<bool, 100> firstBoard = {false};
+  std::array<bool, 100> secondBoard = {false};
+  firstBoard[6] = true;
+  firstBoard[15] = true;
+  Game game = Game(firstBoard, secondBoard);
+  BOOST_CHECK(game.IsGood() == false);
+}
+
+BOOST_AUTO_TEST_CASE(is_good3) {
+  std::array<bool, 100> firstBoard = {false};
+  std::array<bool, 100> secondBoard = {false};
+  firstBoard[6] = true;
+  firstBoard[17] = true;
+  Game game = Game(firstBoard, secondBoard);
+  BOOST_CHECK(game.IsGood() == false);
+}
+
+BOOST_AUTO_TEST_CASE(is_good4) {
+  std::array<bool, 100> firstBoard = {false};
+  std::array<bool, 100> secondBoard = {false};
+  firstBoard[6] = true;
+  firstBoard[7] = true;
+  firstBoard[16] = true;
+  Game game = Game(firstBoard, secondBoard);
+  BOOST_CHECK(game.IsGood() == false);
+}
+
+BOOST_AUTO_TEST_CASE(is_good5) {
+  std::array<bool, 100> firstBoard = {false};
+  std::array<bool, 100> secondBoard = {false};
+  firstBoard[6] = true;
+  firstBoard[7] = true;
+  secondBoard[16] = true;
+  Game game = Game(firstBoard, secondBoard);
+  BOOST_CHECK(game.IsGood() == true);
+}
+
+BOOST_AUTO_TEST_CASE(is_good6) {
+  std::array<bool, 100> firstBoard = {false};
+  std::array<bool, 100> secondBoard = {false};
+  firstBoard[6] = true;
+  secondBoard[17] = true;
+  Game game = Game(firstBoard, secondBoard);
+  BOOST_CHECK(game.IsGood() == true);
+}
+
+BOOST_AUTO_TEST_CASE(is_good7) {
+  std::array<bool, 100> firstBoard = {false};
+  std::array<bool, 100> secondBoard = {false};
+  firstBoard[6] = true;
+  secondBoard[15] = true;
+  Game game = Game(firstBoard, secondBoard);
+  BOOST_CHECK(game.IsGood() == true);
+}
+
 BOOST_AUTO_TEST_SUITE_END()

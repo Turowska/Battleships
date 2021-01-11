@@ -112,6 +112,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a914855976d0b2cd6279e363a441103f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a914855976d0b2cd6279e363a441103f8">IsInField</a> (int number)</td></tr>
 <tr class="memdesc:a914855976d0b2cd6279e363a441103f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza czy statek leży na danym polu  <a href="#a914855976d0b2cd6279e363a441103f8">More...</a><br /></td></tr>
 <tr class="separator:a914855976d0b2cd6279e363a441103f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df68c7b36e527220dda786c3d21848d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a4df68c7b36e527220dda786c3d21848d">GetIndex</a> ()</td></tr>
+<tr class="memdesc:a4df68c7b36e527220dda786c3d21848d"><td class="mdescLeft">&#160;</td><td class="mdescRight">pobranie numery pól, na których leży statek  <a href="#a4df68c7b36e527220dda786c3d21848d">More...</a><br /></td></tr>
+<tr class="separator:a4df68c7b36e527220dda786c3d21848d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -152,6 +155,25 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a4df68c7b36e527220dda786c3d21848d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; Ship::GetIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>pobranie numery pól, na których leży statek </p>
+<p>metoda zwraca indexy pól znajdujących się na liście body_ </p><dl class="section return"><dt>Returns</dt><dd>numery pól na których leży statek </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a0020c27e96c7e83c834e78cf16a5df74"></a>
 <div class="memitem">
 <div class="memproto">
@@ -166,8 +188,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
 </div><div class="memdoc">
 
 <p>sprawdza czy statek jest zatopiony </p>
-<p>metoda sprawdza wartość pola </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4" title="przechowuje informację o zatopieniu statku ">is_afloat_</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>zwraca wartość pola </dd></dl>
+<p>metoda sprawdza wartość pola is_afloat_ </p><dl class="section return"><dt>Returns</dt><dd>zwraca wartość pola is_afloat_ </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4" title="przechowuje informację o zatopieniu statku ">is_afloat_</a> </dd></dl>
 
 </div>
@@ -186,8 +207,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
 </div><div class="memdoc">
 
 <p>metoda oblicza rozmiar statku </p>
-<p>metoda sprawdza rozmiar listy indexów pól na których stoi statek </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>ilość pól zajmowanych przez statek </dd></dl>
+<p>metoda sprawdza rozmiar listy indexów pól na których stoi statek body_ </p><dl class="section return"><dt>Returns</dt><dd>ilość pól zajmowanych przez statek </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
 
 </div>
 </div>
@@ -206,14 +227,14 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
 </div><div class="memdoc">
 
 <p>sprawdza czy statek leży na danym polu </p>
-<p>metoda sprawdza czy dany index jest na liście </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>metoda sprawdza czy dany index jest na liście body_ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>pola </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true - statek leży na danym polu; false - statek nie leży na danym polu </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
 
 </div>
 </div>
@@ -231,7 +252,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
 </div><div class="memdoc">
 
 <p>zatopienie statku </p>
-<p>metoda ustwia wartość pola </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4" title="przechowuje informację o zatopieniu statku ">is_afloat_</a> na true </dd></dl>
+<p>metoda ustwia wartość pola is_afloat_ na true </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4" title="przechowuje informację o zatopieniu statku ">is_afloat_</a> </dd></dl>
 
 </div>
 </div>
@@ -255,7 +276,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
 </div><div class="memdoc">
 
 <p>przechowuje informację o zatopieniu statku </p>
-<p>przechowuje informację o sprawdzeniu wszystkich pól, których indexy znajdują się na liście </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> true - statek został zatopiony, wszystkie pola zostały sprawdzone false - statek nie został zatopiony </dd></dl>
+<p>przechowuje informację o sprawdzeniu wszystkich pól, których indexy znajdują się na liście body_ true - statek został zatopiony, wszystkie pola zostały sprawdzone false - statek nie został zatopiony </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
 
 </div>
 </div>
