@@ -3,7 +3,7 @@ import { useGlobalContext } from "./context";
 import OpponentField from "./OpponentField";
 
 const OpponentBoard = () => {
-  const {opponentBoard, chagneOpponentBoard, playerTurn, playerNumber, socket } = useGlobalContext();
+  const {opponentBoard, setOpponentBoard, playerTurn, playerNumber, socket } = useGlobalContext();
 
   const onClick = (e) => {
     const markedField = parseInt(e.target.id);
@@ -13,7 +13,7 @@ const OpponentBoard = () => {
         let newOpponentBoard = [...opponentBoard];
         newOpponentBoard[markedField].fieldState = newState;
         newOpponentBoard[markedField].isChecked = true;
-        chagneOpponentBoard(newOpponentBoard);
+        setOpponentBoard(newOpponentBoard);
       })      
     } 
   }

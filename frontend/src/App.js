@@ -9,7 +9,7 @@ function App() {
     <div className="app">
       <Header />
       <GameContainer />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

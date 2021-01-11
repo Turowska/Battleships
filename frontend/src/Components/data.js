@@ -1,6 +1,6 @@
-export const pBoard = Array.from(Array(100).keys()).map((idx) => {return({id: idx, fieldState: 'empty-field'})});
+export const pBoard = Array.from(Array(100).keys()).map((idx) => {return({id: idx, fieldState: 'empty'})});
 
-export const oBoard = Array.from(Array(100).keys()).map((idx) => {return({id: idx, isChecked: false, fieldState: 'empty-field'})});
+export const oBoard = Array.from(Array(100).keys()).map((idx) => {return({id: idx, isChecked: false, fieldState: 'empty'})});
 
 export const shipsArray = [
   {

@@ -82,6 +82,7 @@ def join(sid, data):
     print(f"Player {sid} has joined")
     playerNumber = -1
 
+    # CHECK FOR HTE SAME PLAYER JOINING
     for i, player in enumerate(players):
         if(player == None):
             playerNumber = i

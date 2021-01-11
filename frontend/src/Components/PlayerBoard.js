@@ -24,7 +24,7 @@ const validatePlacementVertically = (dropped, draggedShip) => {
 
 const PlayerBoard = () => {
 
-  const {playerBoard, changePlayerBoard, draggedShip, ships, setShips} = useGlobalContext();
+  const {playerBoard, setPlayerBoard, draggedShip, ships, setShips} = useGlobalContext();
 
   const onDrop = e => {
     e.preventDefault();
@@ -35,9 +35,9 @@ const PlayerBoard = () => {
       if(validatePlacementHorizontally(dropped, draggedShip)) {
         for (let index = 0; index <= draggedShip.ship.length; index++) {
           const idx  = parseInt(dropped) + parseInt(index) - parseInt(draggedShip.grabbedIdx);
-          newPlayerBoard[idx].fieldState = "ship " + draggedShip.ship.type + "-field";          
+          newPlayerBoard[idx].fieldState = "taken";          
         }
-        changePlayerBoard(newPlayerBoard);
+        setPlayerBoard(newPlayerBoard);
         const newShips = ships.filter(ship => ship.id !== draggedShip.ship.id);
         setShips(newShips);
       }
@@ -45,9 +45,9 @@ const PlayerBoard = () => {
       if(validatePlacementVertically(dropped, draggedShip)) {
         for (let index = 0; index <= draggedShip.ship.length; index++) {
           const idx = parseInt(dropped) + parseInt(index) * 10 - parseInt(draggedShip.grabbedIdx) * 10;
-          newPlayerBoard[idx].fieldState = "ship " + draggedShip.ship.type + "-field";
+          newPlayerBoard[idx].fieldState = "taken";
         }
-        changePlayerBoard(newPlayerBoard);
+        setPlayerBoard(newPlayerBoard);
         const newShips = ships.filter(ship => ship.id !== draggedShip.ship.id);
         setShips(newShips);
       }

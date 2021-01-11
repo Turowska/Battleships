@@ -12,7 +12,6 @@ const AppProvider = ({children}) => {
   const [draggedShip, setDraggedShip] = useState({
     ship : {
       id : -1,
-      type: "",
       length: 0,
       direction: ""
     },
@@ -20,9 +19,9 @@ const AppProvider = ({children}) => {
   });
   const [playerNumber, setPlayerNumber] = useState(-1);
   const [socket, setSocket] = useState(null);
-  const [socketConnected, setSocketConnected] = useState(false)
+  const [socketConnected, setSocketConnected] = useState(false);
   const [playerTurn, setPlayerTurn] = useState(-2);
-  const [ships, setShips] = useState(shipsArray)
+  const [ships, setShips] = useState(shipsArray);
 
 
   useEffect(() => {
@@ -59,35 +58,34 @@ const AppProvider = ({children}) => {
 
     socket.on('fire', (object) => {
       const {hit, field} = object;
-      const newState = hit ? "hit" : "missed";
+      const newState = hit ? "taken hit" : "missed";
       let newPlayerBoard = [...playerBoard];
       newPlayerBoard[field].fieldState = newState;
-      changePlayerBoard(newPlayerBoard);
+      setPlayerBoard(newPlayerBoard);
     })
 
     socket.on('game-over', () => {
-      console.log("GAME OVER!!!!!")
-      setPlayerNumber(-1)
+      alert("GameOVER you have won!")
+      setPlayerNumber(-1);
+      resetBoard();
     })
 
   }, [socket])
 
-
-  const changePlayerBoard = (newBoard) => {
-    setPlayerBoard(newBoard);
-  }
-  
-  const chagneOpponentBoard = (newBoard) => {
-    setOpponentBoard(newBoard);
+  const resetBoard = () => {
+    setPlayerBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, fieldState: 'empty'})}));
+    setOpponentBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, isChecked: false, fieldState: 'empty'})}));
+    setShips(shipsArray);
   }
 
   return <AppContext.Provider 
   value={{ 
       playerBoard,  
-      changePlayerBoard,
+      setPlayerBoard,
       opponentBoard,
-      chagneOpponentBoard,
+      setOpponentBoard,
       draggedShip,
+      resetBoard,
       setDraggedShip,
       playerNumber,
       playerTurn,
