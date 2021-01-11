@@ -10,9 +10,9 @@ import Notifications from "./Notifications";
 const convertBoardToBool = (board) => {
   const retv = board.map((field) => { 
     if(field.fieldState === 'empty-field') {
-      return true
-    } else {
       return false
+    } else {
+      return true
     }
   })
 
@@ -29,16 +29,20 @@ const GameContainer = () => {
 
   return (
     <div className="game-container">
-      {/* <Notifications /> */}
-      <DisplayBoard />
-      <PlayerBoard/>
-      <OpponentBorad/>
+      <Notifications />
+        <div className="boards-container">
+        <DisplayBoard />
+        <PlayerBoard/>
+        <OpponentBorad/>
+        </div>
+      <div className="button-container">
       <button className="btn" onClick={joinGame}>
         Play
       </button >
-      {/* <button className="btn">
+      <button className="btn">
         Reset Board
-      </button> */}
+      </button>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { pBoard, oBoard } from "./data";
+import { pBoard, shipsArray ,oBoard } from "./data";
 import io from 'socket.io-client'
 
 
@@ -10,15 +10,19 @@ const AppProvider = ({children}) => {
   const [playerBoard, setPlayerBoard] = useState(pBoard);
   const [opponentBoard, setOpponentBoard] = useState(oBoard);
   const [draggedShip, setDraggedShip] = useState({
-    type: "",
-    direction: "",
-    length: 0,
+    ship : {
+      id : -1,
+      type: "",
+      length: 0,
+      direction: ""
+    },
     grabbedIdx: 0,
   });
   const [playerNumber, setPlayerNumber] = useState(-1);
   const [socket, setSocket] = useState(null);
   const [socketConnected, setSocketConnected] = useState(false)
   const [playerTurn, setPlayerTurn] = useState(-2);
+  const [ships, setShips] = useState(shipsArray)
 
 
   useEffect(() => {
@@ -61,6 +65,11 @@ const AppProvider = ({children}) => {
       changePlayerBoard(newPlayerBoard);
     })
 
+    socket.on('game-over', () => {
+      console.log("GAME OVER!!!!!")
+      setPlayerNumber(-1)
+    })
+
   }, [socket])
 
 
@@ -82,7 +91,9 @@ const AppProvider = ({children}) => {
       setDraggedShip,
       playerNumber,
       playerTurn,
-      socket
+      socket,
+      ships,
+      setShips
     }}>
     {children}
   </AppContext.Provider>

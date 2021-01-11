@@ -1,13 +1,33 @@
 .game-container {
   display: flex;
+  flex-direction: column;
+}
+
+.boards-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.notifications span {
+  font-size: 1.5rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }
 
 .board {
-  width: 400px;
-  height: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px;
+  margin: 2vmin;
+  display: grid;
+  background-color: hsl(200, 100%, 50%);
+  grid-template-rows: repeat(10, 4.6vmin);
+  grid-template-columns: repeat(10, 4.6vmin);
+}
+
+.board div {
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
 }
 
 .header {
@@ -22,154 +42,134 @@
   background-color: coral;
 }
 
-.player-board {
-  background-color: blue;
-}
-
 .btn {
   margin: 10px;
 }
 
-.empty-field {
-  width: 40px;
-  height: 40px;
-}
-
 .missed {
-  width: 40px;
-  height: 40px;
+  width: 4.6vmin;
+  height: 4.6vmin;
   background-color: black;
 }
 
 .hit {
-  width: 40px;
-  height: 40px;
+  width: 4.6vmin;
+  height: 4.6vmin;
   background-color: red;
 }
 
-.opponent-board {
-  background-color: green;
-}
-
 .display-board {
-  background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 30%;
 }
 
-.ship div {
-  width: 40px;
-  height: 40px;
+.ship > div {
+  width: 4.6vmin;
+  height: 4.6vmin;
 }
 
 .ship {
   display: flex;
+  flex-wrap: wrap;
+  width: calc(4.6vmin * var(--width, 1));
+  height: calc(4.6vmin * var(--height, 1));
 }
 
 .submarine-horizontal {
-  width: 80px;
-  height: 40px;
-  margin: 10px;
+  --width: 2;
+  height: 4.6vmin;
+  margin: 1vmin;
   background-color: orange;
 }
 
 .submarine-field {
-  width: 40px;
-  height: 40px;
+  width: 4.6vmin;
+  height: 4.6vmin;
   background-color: orange;
 }
 
 .destroyer-horizontal {
-  width: 120px;
-  height: 40px;
-  margin: 10px;
+  --width: 3;
+  height: 4.6vmin;
+  margin: 1vmin;
   background-color: green;
 }
 
 .destroyer-field {
-  width: 40px;
-  height: 40px;
+  width: 4.6vmin;
+  height: 4.6vmin;
   background-color: green;
 }
 
 .frigate-horizontal {
-  width: 160px;
-  height: 40px;
-  margin: 10px;
+  --width: 4;
+  --height: 1;
+  margin: 1vmin;
   background-color: aqua;
 }
 
 .frigate-field {
-  width: 40px;
-  height: 40px;
+  width: 4.6vmin;
+  height: 4.6vmin;
   background-color: aqua;
 }
 
 .patrol-horizontal {
-  width: 40px;
-  height: 40px;
-  margin: 10px;
+  --width: 1;
+  --height: 1;
+  margin: 1vmin;
   background-color: red;
 }
 
 .patrol-field {
-  width: 40px;
-  height: 40px;
+  width: 4.6vmin;
+  height: 4.6vmin;
   background-color: red;
 }
 
 .carrier-horizontal {
-  width: 200px;
-  height: 40px;
-  margin: 10px;
+  --width: 5;
+  --height: 1;
+  margin: 1vmin;
   background-color: purple;
 }
 
 .carrier-field {
-  width: 40px;
-  height: 40px;
+  width: 4.6vmin;
+  height: 4.6vmin;
   background-color: purple;
 }
 
 .submarine-vertical {
-  width: 40px;
-  height: 80px;
-  margin: 10px;
+  --height: 2;
+  margin: 1vmin;
   background-color: orange;
   display: flex;
   flex-wrap: wrap;
 }
 
 .destroyer-vertical {
-  width: 40px;
-  height: 120px;
-  margin: 10px;
+  --height: 3;
+  margin: 1vmin;
   background-color: green;
   display: flex;
   flex-wrap: wrap;
 }
 
 .frigate-vertical {
-  width: 40px;
-  height: 160px;
-  margin: 10px;
+  --height: 4;
+  margin: 1vmin;
   background-color: aqua;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .patrol-vertical {
-  width: 40px;
-  height: 40px;
-  margin: 10px;
+  margin: 1vmin;
   background-color: red;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .carrier-vertical {
-  width: 200px;
-  height: 40px;
-  margin: 10px;
+  --height: 5;
+  margin: 1vmin;
   background-color: purple;
-  display: flex;
-  flex-wrap: wrap;
 }

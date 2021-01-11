@@ -1,11 +1,14 @@
 import React from "react"
+import { useGlobalContext } from "./context";
 import Ship from "./Ships/Ship"
 
 const DisplayBoard = () => {
 
+  const {ships} = useGlobalContext();
+
   return (
-    <div className="board display-board">
-      {Array.from(Array(5).keys()).map((idx) => <Ship key={idx} id={idx} />)}
+    <div className="display-board">
+      {ships.map((ship) => <Ship key={ship.id} ship={ship} />)}
     </div>
   );
 };

@@ -4,18 +4,18 @@ import PlayerField from "./PlayerField";
 
 const width = 10;
 
-const validatePlacementHorizontally = (dropped, ship) => {
+const validatePlacementHorizontally = (dropped, draggedShip) => {
   let droppedWidth = dropped % 10;
-  if(droppedWidth + ship.length - ship.grabbedIdx < 10 && droppedWidth + ship.length - ship.grabbedIdx >= ship.length) {
+  if(droppedWidth + draggedShip.ship.length - draggedShip.grabbedIdx < 10 && droppedWidth + draggedShip.ship.length - draggedShip.grabbedIdx >= draggedShip.ship.length) {
     return true
   } else {
     return false
   }
 };
 
-const validatePlacementVertically = (dropped, ship) => {
+const validatePlacementVertically = (dropped, draggedShip) => {
   let droppedHeight = Math.floor(parseInt(dropped)/10);
-  if(droppedHeight + ship.length - ship.grabbedIdx < 10 && droppedHeight + ship.length - ship.grabbedIdx >= ship.length) {
+  if(droppedHeight + draggedShip.ship.length - draggedShip.grabbedIdx < 10 && droppedHeight + draggedShip.ship.length - draggedShip.grabbedIdx >= draggedShip.ship.length) {
     return true
   } else {
     return false
@@ -24,30 +24,34 @@ const validatePlacementVertically = (dropped, ship) => {
 
 const PlayerBoard = () => {
 
-  const {playerBoard, changePlayerBoard, draggedShip} = useGlobalContext();
+  const {playerBoard, changePlayerBoard, draggedShip, ships, setShips} = useGlobalContext();
 
   const onDrop = e => {
     e.preventDefault();
     const dropped = e.target.id;
-    let newPlayerBoard = [...playerBoard];    
-    if(draggedShip.direction == 'horizontal') {
+    let newPlayerBoard = [...playerBoard];
+
+    if(draggedShip.ship.direction == 'horizontal') {
       if(validatePlacementHorizontally(dropped, draggedShip)) {
-        for (let index = 0; index <= draggedShip.length; index++) {
+        for (let index = 0; index <= draggedShip.ship.length; index++) {
           const idx  = parseInt(dropped) + parseInt(index) - parseInt(draggedShip.grabbedIdx);
-          newPlayerBoard[idx].fieldState = "ship " + draggedShip.type + "-field";          
+          newPlayerBoard[idx].fieldState = "ship " + draggedShip.ship.type + "-field";          
         }
         changePlayerBoard(newPlayerBoard);
+        const newShips = ships.filter(ship => ship.id !== draggedShip.ship.id);
+        setShips(newShips);
       }
     } else {
       if(validatePlacementVertically(dropped, draggedShip)) {
-        for (let index = 0; index <= draggedShip.length; index++) {
+        for (let index = 0; index <= draggedShip.ship.length; index++) {
           const idx = parseInt(dropped) + parseInt(index) * 10 - parseInt(draggedShip.grabbedIdx) * 10;
-          newPlayerBoard[idx].fieldState = "ship " + draggedShip.type + "-field";
+          newPlayerBoard[idx].fieldState = "ship " + draggedShip.ship.type + "-field";
         }
         changePlayerBoard(newPlayerBoard);
+        const newShips = ships.filter(ship => ship.id !== draggedShip.ship.id);
+        setShips(newShips);
       }
     }
-
   }
 
   const dragOver = e => {
@@ -60,7 +64,7 @@ const PlayerBoard = () => {
 
   return (
     <div
-      className={"board player-board"}
+      className={"board"}
       onDrop={onDrop}
       onDragOver={dragOver}
       onDragLeave={onDragLeave}

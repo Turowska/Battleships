@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import socketio
 import pythonGame
 
@@ -34,15 +34,19 @@ def disconnect(sid):
     print(f"{sid} disconnected")
     for i, player in enumerate(players):
         if(player != None and player["sid"] == sid):
-            players[i] = None
-            #  Send game-over event to notify user about finished game
+            winnerIDX = 0 if i == 1 else 1
+            winner = players[winnerIDX]["sid"]
+            sio.emit('game-over', to=winner)
+            players[0] = None
+            players[1] = None
+            gameInstace = None
+            playerTurn = 0
             print(f"Player {i} has disconected GAME OVER!")
             return
 
 
 @sio.event
 def shoot(sid, data):
-    # implement shooting a single shot - round logic
     opponentSID = -1
 
     if(players[0]["sid"] == sid):
@@ -50,23 +54,25 @@ def shoot(sid, data):
     else:
         opponentSID = players[0]["sid"]
 
-    # Use game logic to determine weather or not is hit
-    field = data["field"]
-    isHit = False
-    # Emit if hit or not hit
-    sio.emit('fire', {"hit": isHit, "field": field}, to=opponentSID)
-
+    global gameInstace
     global playerTurn
 
-    playerTurn = 1 if playerTurn == 0 else 0
+    field = data["field"]
+    player = playerTurn + 1
+    isHit = gameInstace.Shot(field, player)
+
+    sio.emit('fire', {"hit": isHit, "field": field}, to=opponentSID)
 
     if not isHit:
+        playerTurn = 1 if playerTurn == 0 else 0
         for player in players:
             playerSID = player["sid"]
             sio.emit('player-turn', playerTurn, to=playerSID)
-        pass
 
-    # check if end game emit end-game
+    if gameInstace.IsEnd():
+        for player in players:
+            playerSID = player["sid"]
+            sio.emit('game-over', to=playerSID)
 
     return isHit
 
@@ -83,7 +89,6 @@ def join(sid, data):
                 "sid": sid,
                 "board": data
             }
-            print(f"Player {i} with sid: {sid} joined with board {data}")
             break
 
     sio.emit('player-number', playerNumber, to=sid)
@@ -92,12 +97,16 @@ def join(sid, data):
         print("No place for you, sorry")
         return
 
+    global playerTurn
+    global gameInstace
+
     if players[0] != None and players[1] != None:
         print("Start the game!")
+        gameInstace = pythonGame.Game(players[0]["board"], players[1]["board"])
         for player in players:
             playerSID = player["sid"]
-            print(f"Sending player number notification to player {playerSID}")
             sio.emit('player-turn', playerTurn, to=playerSID)
+
         # Create new gameinstance and nofiy users that game began
         # Check if everything is all right
         pass

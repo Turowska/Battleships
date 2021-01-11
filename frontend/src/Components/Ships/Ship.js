@@ -4,21 +4,26 @@ import { ships } from "../data";
 import ShipField from "./ShipField";
 
 
-const Ship = ({id}) => {
+const Ship = ({ship}) => {
 
-  const {draggedShip, setDraggedShip} = useGlobalContext();
+  const {draggedShip, setDraggedShip, ships ,setShips} = useGlobalContext();
 
-  const [direction, setDirection] = useState('horizontal')
-  const type = ships[id].type;
-  const length = ships[id].length;
+  const { id, type, length, direction} = ship
 
   const rotate = () => {
     const newDirection = direction === "horizontal" ? "vertical" : "horizontal";
-    setDirection(newDirection);
+    const newShips = ships.map((ship) => {
+      if(ship.id === id) {
+        return {id, type, length, direction: newDirection}
+      } else {
+        return ship
+      }
+    })
+    setShips(newShips);
   }
 
   const onDragStart = e => {
-    const newDraggedShip = {...draggedShip, type: type, length: length - 1, direction: direction}
+    const newDraggedShip = {...draggedShip, ship: { id, type, length: length - 1, direction}}
     setDraggedShip(newDraggedShip);
   }
 

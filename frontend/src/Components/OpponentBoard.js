@@ -21,7 +21,7 @@ const OpponentBoard = () => {
 
   return (
     <div 
-      className={"board opponent-board"}
+      className={"board"}
       onClick={onClick}
     >
       {Array.from(Array(100).keys()).map(idx => <OpponentField key={idx} field={opponentBoard[idx]}/>)}
