@@ -24,9 +24,10 @@ class Player {
 	/**
 	* @brief dokonanie przez przeciwnika strzału na dane pole
 	*
-	* metoda odpowiadająca dokonaniu strzału przez przeciwnika na podane pole; w przypadku trafienia sprawdza czy dany statek powinien być zatopiony zapomocą metody @see Sunk()
+	* metoda odpowiadająca dokonaniu strzału przez przeciwnika na podane pole; w przypadku trafienia sprawdza czy dany statek powinien być zatopiony zapomocą metody Sunk()
 	* @param numer indexu pola
 	* @return true - na danym polu znajdował się statek; false - dane pole było wolne
+	* @see Sunk()
 	*/
 	bool Shot(int number);
 	/**
@@ -44,7 +45,13 @@ class Player {
 	* @return true - wszystkie statki zostały zatopione; false - niewszystkie statki zostały zatopione
 	*/
 	bool EndGame();
-
+	/**
+	* @brief czy wystąpiły błędy
+	*
+	* metoda sprawdza czy w trakcie działania programu wystąpiły błędy, którego mogą skutkować łamaniem zasad gry
+	* @return true - nie wystąpiły błędy; false - wystąpiły błędy
+	*/
+	bool IsGood();
     private:
 	/**
 	* @brief plansza gracza
@@ -54,6 +61,13 @@ class Player {
 	* @brief zbiór statków danego gracza
 	*/
 	std::vector<Ship> ships_;
+	/**
+	* @brief pole przechowuje informacje, czy wystąpiły w trakcie działanie programu błędy
+	*
+	* true - nie wystąpiły błędy
+	* false - wystąpiły błędy
+	*/
+	bool isGood_;
 
 	/**
 	* @brief sprawdzenie czy dany statek powinien być zatopiony

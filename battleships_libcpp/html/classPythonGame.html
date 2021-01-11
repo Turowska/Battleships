@@ -158,16 +158,16 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>wywoływana z poziomu pythona jako <a class="el" href="classGame.html" title="klasa przechowująca i przetwarzająca dane gry w okręty ">Game(list, list)</a> </p>
-<p>konstruktor zamienia listy na tablice std::array i tworzy obiekt klasy <a class="el" href="classGame.html" title="klasa przechowująca i przetwarzająca dane gry w okręty ">Game</a> za pomocą konstruktora </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a922f9d489afd5781e18080d8d014a3f4" title="stworzenie planszy na podstawie dwóch tablic ">Game::Game()</a>, którego wskaźnik przechowuje w polu </dd>
-<dd>
-<a class="el" href="classPythonGame.html#a9bc4bc661d33913d5333c1409438c72d" title="wskaźnik na oryginalny obiekt do którego kontrolowany jest dostęp ">game_</a> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>konstruktor zamienia listy na tablice std::array i tworzy obiekt klasy <a class="el" href="classGame.html" title="klasa przechowująca i przetwarzająca dane gry w okręty ">Game</a> za pomocą konstruktora <a class="el" href="classGame.html#a922f9d489afd5781e18080d8d014a3f4" title="stworzenie planszy na podstawie dwóch tablic ">Game::Game()</a>, którego wskaźnik przechowuje w polu game_ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lista</td><td>z danymi do stworzenia tablic dla pierwszego gracza </td></tr>
     <tr><td class="paramname">lista</td><td>z danymi do stworzenia tablic dla drugiego gracza </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a922f9d489afd5781e18080d8d014a3f4" title="stworzenie planszy na podstawie dwóch tablic ">Game::Game()</a> </dd>
+<dd>
+<a class="el" href="classPythonGame.html#a9bc4bc661d33913d5333c1409438c72d" title="wskaźnik na oryginalny obiekt do którego kontrolowany jest dostęp ">game_</a> </dd></dl>
 
 </div>
 </div>
@@ -186,8 +186,8 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#af14ced7ffb5a22c1e8438b378ef3d249" title="wywoływana z poziomu pythona jako IsEnd() ">IsEnd()</a> </p>
-<p>metoda wywołuje i zwraca wartość zwracaną przez metodę </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#ab001fd45be3c07b966a0a7fae6016bf6" title="czy koniec gry ">Game::IsEnd()</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>true - koniec gry; false - nie nastąpił jeszcze koniec gry </dd></dl>
+<p>metoda wywołuje i zwraca wartość zwracaną przez metodę <a class="el" href="classGame.html#ab001fd45be3c07b966a0a7fae6016bf6" title="czy koniec gry ">Game::IsEnd()</a> </p><dl class="section return"><dt>Returns</dt><dd>true - koniec gry; false - nie nastąpił jeszcze koniec gry </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#ab001fd45be3c07b966a0a7fae6016bf6" title="czy koniec gry ">Game::IsEnd()</a> </dd></dl>
 
 </div>
 </div>
@@ -224,14 +224,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#ad9fe6f505cd31f8eca605fe9a7cf8fa2" title="wywoływana z poziomu pythona jako IsSunk(int) ">IsSunk(int)</a> </p>
-<p>metoda wywołuje i zwraca wartość zwracaną przez metodę </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a3d9e627020b60b0e1242f214329e9bc8" title="czy statek został zatopiony ">Game::IsSunk()</a> przekazując jako argument index pola </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>metoda wywołuje i zwraca wartość zwracaną przez metodę <a class="el" href="classGame.html#a3d9e627020b60b0e1242f214329e9bc8" title="czy statek został zatopiony ">Game::IsSunk()</a> przekazując jako argument index pola </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>pola, na którym znajduje się statek </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true - statek jest zatopiony; false - statek nie jest zatopiony </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a3d9e627020b60b0e1242f214329e9bc8" title="czy statek został zatopiony ">Game::IsSunk()</a> </dd></dl>
 
 </div>
 </div>
@@ -260,8 +260,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#ac2eb74cec970628a27fd8f2832e91257" title="wywoływana z poziomu pythona jako Shot(int, int) ">Shot(int, int)</a> </p>
-<p>metoda wywołuje i zwraca wartość zwracaną przez metodę </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#aa5f9765c46045318f316a9ede2df245c" title="wykonanie strzału ">Game::Shot()</a> przekazując jako argument index pola i gracza </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>metoda wywołuje i zwraca wartość zwracaną przez metodę <a class="el" href="classGame.html#aa5f9765c46045318f316a9ede2df245c" title="wykonanie strzału ">Game::Shot()</a> przekazując jako argument index pola i gracza </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>pola, które ma zostać sprawdzone </td></tr>
     <tr><td class="paramname">index</td><td>gracza wykonującego ruch </td></tr>
@@ -269,6 +268,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true - pole jest zajęte; false - pole jest wolne </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#aa5f9765c46045318f316a9ede2df245c" title="wykonanie strzału ">Game::Shot()</a> </dd></dl>
 
 </div>
 </div>

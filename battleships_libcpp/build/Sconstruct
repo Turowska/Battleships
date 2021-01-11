@@ -3,9 +3,9 @@ import platform
 import shutil
 
 BOOSTPATH = '/usr/local/boost_1_75_0'
-PYTHONPATH = '/usr/include/python3.8'
+PYTHONPATH = '/usr/include/python3.5'
 BOOSTLIBPATH = '/usr/local/boost_1_75_0/stage/lib'
-PYTHONLIBPATH = '/usr/lib/python3.8'
+PYTHONLIBPATH = '/usr/lib/python3.5'
 
 def build_link_to_lib( target, source, env):
    '''tworzy link (symboliczny) do biblioteki - uzywany w serwerze'''
@@ -31,5 +31,5 @@ else:
     env.Append(CXXFLAGS='-pedantic -Wall -std=c++17')
     env.Append(LIBPATH = [BOOSTLIBPATH, PYTHONLIBPATH])
     VariantDir('#/../object', '#/../src', duplicate=0)
-    dll= env.SharedLibrary('#/../pythonGame', [Glob('#/../object/*.cc')], LIBS = ['boost_python38'])
+    dll= env.SharedLibrary('pythonGame', [Glob('#/../object/*.cc')], LIBS = ['boost_python35'])
     env.Command(target, dll, build_link_to_lib )

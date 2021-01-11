@@ -5,39 +5,41 @@
 
 using namespace boost::python;
 
-PythonGame::PythonGame(list tabListFirstPlayer, list tabListSecondPlayer){
-	if(len(tabListFirstPlayer)!=100||len(tabListSecondPlayer)!=100){
-		isGood_ = false;
-	} else {
-		std::array<bool, 100> tabArrayFirstPlayer;
-		std::array<bool, 100> tabArraySecondPlayer;
-		for(int i = 0; i < 100; ++i){
-			tabArrayFirstPlayer[i] = extract<bool>(tabListFirstPlayer[i]);
-			tabArraySecondPlayer[i] = extract<bool>(tabListSecondPlayer[i]);
-		} 
-		game_ = new Game(tabArrayFirstPlayer, tabArraySecondPlayer);
-		isGood_ = game_->IsGood();
-	}
+PythonGame::PythonGame(list tabListFirstPlayer, list tabListSecondPlayer): isGood_(true) {
+    if(len(tabListFirstPlayer)!=100||len(tabListSecondPlayer)!=100){
+	isGood_ = false;
+    } else {
+	std::array<bool, 100> tabArrayFirstPlayer;
+	std::array<bool, 100> tabArraySecondPlayer;
+	for(int i = 0; i < 100; ++i){
+	    tabArrayFirstPlayer[i] = extract<bool>(tabListFirstPlayer[i]);
+	    tabArraySecondPlayer[i] = extract<bool>(tabListSecondPlayer[i]);
+	} 
+	game_ = new Game(tabArrayFirstPlayer, tabArraySecondPlayer);
+    }
 }
 
-bool PythonGame::Shot(int number, int player){
-	return game_->Shot(number, player);
+bool PythonGame::Shot(int number, int player) {
+    return game_->Shot(number, player);
 }
 
-bool PythonGame::IsSunk(int number){
-	return game_->IsSunk(number);
+bool PythonGame::IsSunk(int number) {
+    return game_->IsSunk(number);
 }
 
-bool PythonGame::IsEnd(){
-	if(game_->IsEnd()){
-		delete game_;
-		return true;
-	}
-	return false;
+bool PythonGame::IsEnd() {
+    if(game_->IsEnd()){
+	delete game_;
+	return true;
+    }
+    return false;
 }
 
-bool PythonGame::IsGood(){
-	return isGood_;
+bool PythonGame::IsGood() {
+    if(isGood_) {
+	isGood_ = game_->IsGood();
+    }
+    return isGood_;
 }
 
 BOOST_PYTHON_MODULE(pythonGame) {
