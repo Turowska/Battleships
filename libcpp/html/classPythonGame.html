@@ -110,9 +110,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac2eb74cec970628a27fd8f2832e91257"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPythonGame.html#ac2eb74cec970628a27fd8f2832e91257">Shot</a> (int number, int player)</td></tr>
 <tr class="memdesc:ac2eb74cec970628a27fd8f2832e91257"><td class="mdescLeft">&#160;</td><td class="mdescRight">wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#ac2eb74cec970628a27fd8f2832e91257" title="wywoływana z poziomu pythona jako Shot(int, int) ">Shot(int, int)</a>  <a href="#ac2eb74cec970628a27fd8f2832e91257">More...</a><br /></td></tr>
 <tr class="separator:ac2eb74cec970628a27fd8f2832e91257"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9fe6f505cd31f8eca605fe9a7cf8fa2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPythonGame.html#ad9fe6f505cd31f8eca605fe9a7cf8fa2">IsSunk</a> (int number)</td></tr>
-<tr class="memdesc:ad9fe6f505cd31f8eca605fe9a7cf8fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#ad9fe6f505cd31f8eca605fe9a7cf8fa2" title="wywoływana z poziomu pythona jako IsSunk(int) ">IsSunk(int)</a>  <a href="#ad9fe6f505cd31f8eca605fe9a7cf8fa2">More...</a><br /></td></tr>
-<tr class="separator:ad9fe6f505cd31f8eca605fe9a7cf8fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46026741b8085b33369ca4facd5d4d21"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPythonGame.html#a46026741b8085b33369ca4facd5d4d21">IsSunk</a> (int number)</td></tr>
+<tr class="memdesc:a46026741b8085b33369ca4facd5d4d21"><td class="mdescLeft">&#160;</td><td class="mdescRight">wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#a46026741b8085b33369ca4facd5d4d21" title="wywoływana z poziomu pythona jako IsSunk(int) ">IsSunk(int)</a>  <a href="#a46026741b8085b33369ca4facd5d4d21">More...</a><br /></td></tr>
+<tr class="separator:a46026741b8085b33369ca4facd5d4d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af14ced7ffb5a22c1e8438b378ef3d249"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPythonGame.html#af14ced7ffb5a22c1e8438b378ef3d249">IsEnd</a> ()</td></tr>
 <tr class="memdesc:af14ced7ffb5a22c1e8438b378ef3d249"><td class="mdescLeft">&#160;</td><td class="mdescRight">wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#af14ced7ffb5a22c1e8438b378ef3d249" title="wywoływana z poziomu pythona jako IsEnd() ">IsEnd()</a>  <a href="#af14ced7ffb5a22c1e8438b378ef3d249">More...</a><br /></td></tr>
 <tr class="separator:af14ced7ffb5a22c1e8438b378ef3d249"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,12 +209,12 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad9fe6f505cd31f8eca605fe9a7cf8fa2"></a>
+<a class="anchor" id="a46026741b8085b33369ca4facd5d4d21"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool PythonGame::IsSunk </td>
+          <td class="memname">list PythonGame::IsSunk </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>number</em></td><td>)</td>
@@ -223,15 +223,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#ad9fe6f505cd31f8eca605fe9a7cf8fa2" title="wywoływana z poziomu pythona jako IsSunk(int) ">IsSunk(int)</a> </p>
-<p>metoda wywołuje i zwraca wartość zwracaną przez metodę <a class="el" href="classGame.html#a3d9e627020b60b0e1242f214329e9bc8" title="czy statek został zatopiony ">Game::IsSunk()</a> przekazując jako argument index pola </p><dl class="params"><dt>Parameters</dt><dd>
+<p>wywoływana z poziomu pythona jako <a class="el" href="classPythonGame.html#a46026741b8085b33369ca4facd5d4d21" title="wywoływana z poziomu pythona jako IsSunk(int) ">IsSunk(int)</a> </p>
+<p>metoda wywołuje i zwraca wartość zwracaną przez metodę <a class="el" href="classGame.html#af0c0dceaf30d19511b639edf47af754b" title="czy statek został zatopiony ">Game::IsSunk()</a>, zmienioną na listę, przekazując jako argument index pola </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>pola, na którym znajduje się statek </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true - statek jest zatopiony; false - statek nie jest zatopiony </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a3d9e627020b60b0e1242f214329e9bc8" title="czy statek został zatopiony ">Game::IsSunk()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>lista indexów pól na których leży zatopiony statek, jeżeli statek nie jest zatopiony, lub na danym polu nie ma statku, zwraca pustą listę </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#af0c0dceaf30d19511b639edf47af754b" title="czy statek został zatopiony ">Game::IsSunk()</a> </dd></dl>
 
 </div>
 </div>

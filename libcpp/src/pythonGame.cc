@@ -23,8 +23,13 @@ bool PythonGame::Shot(int number, int player) {
     return game_->Shot(number, player);
 }
 
-bool PythonGame::IsSunk(int number) {
-    return game_->IsSunk(number);
+list PythonGame::IsSunk(int number) {
+    list numbers;
+    std::vector<int> wsk(game_->IsSunk(number));
+    for(unsigned int i=0; i<wsk.size(); ++i) {
+	numbers.append(wsk[i]);
+    } 
+    return numbers;
 }
 
 bool PythonGame::IsEnd() {

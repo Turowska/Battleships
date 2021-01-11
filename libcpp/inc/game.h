@@ -2,6 +2,7 @@
 #define BATTLESHIPS_LIBCPP_INC_GAME_H_
 
 #include <array>
+#include <vector>
 #include <utility>
 
 #include "player.h"
@@ -36,10 +37,10 @@ class Game {
 	*
 	* metoda sprawdza, czy statek przeciwnika gracza, którego kolej (określona za pomocą pola round_), znajdujący się między innymi na danym polu, został zatopiony
 	* @param index pola
-	* @return true - statek został zatopiony; flase - statek nie został zatopiony
+	* @return vektor indexów pól na których leży zatopiony statek, pusty, jeśli nie zatopiony, lub nie ma statku
 	* @see round_
 	*/
-	bool IsSunk(int number);
+	std::vector<int> IsSunk(int number);
 	/**
 	* @brief czy koniec gry
 	*

@@ -103,9 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa5f9765c46045318f316a9ede2df245c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aa5f9765c46045318f316a9ede2df245c">Shot</a> (int number, int player)</td></tr>
 <tr class="memdesc:aa5f9765c46045318f316a9ede2df245c"><td class="mdescLeft">&#160;</td><td class="mdescRight">wykonanie strzału  <a href="#aa5f9765c46045318f316a9ede2df245c">More...</a><br /></td></tr>
 <tr class="separator:aa5f9765c46045318f316a9ede2df245c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d9e627020b60b0e1242f214329e9bc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a3d9e627020b60b0e1242f214329e9bc8">IsSunk</a> (int number)</td></tr>
-<tr class="memdesc:a3d9e627020b60b0e1242f214329e9bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">czy statek został zatopiony  <a href="#a3d9e627020b60b0e1242f214329e9bc8">More...</a><br /></td></tr>
-<tr class="separator:a3d9e627020b60b0e1242f214329e9bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c0dceaf30d19511b639edf47af754b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#af0c0dceaf30d19511b639edf47af754b">IsSunk</a> (int number)</td></tr>
+<tr class="memdesc:af0c0dceaf30d19511b639edf47af754b"><td class="mdescLeft">&#160;</td><td class="mdescRight">czy statek został zatopiony  <a href="#af0c0dceaf30d19511b639edf47af754b">More...</a><br /></td></tr>
+<tr class="separator:af0c0dceaf30d19511b639edf47af754b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab001fd45be3c07b966a0a7fae6016bf6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ab001fd45be3c07b966a0a7fae6016bf6">IsEnd</a> ()</td></tr>
 <tr class="memdesc:ab001fd45be3c07b966a0a7fae6016bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">czy koniec gry  <a href="#ab001fd45be3c07b966a0a7fae6016bf6">More...</a><br /></td></tr>
 <tr class="separator:ab001fd45be3c07b966a0a7fae6016bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,12 +200,12 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3d9e627020b60b0e1242f214329e9bc8"></a>
+<a class="anchor" id="af0c0dceaf30d19511b639edf47af754b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Game::IsSunk </td>
+          <td class="memname">std::vector&lt; int &gt; Game::IsSunk </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>number</em></td><td>)</td>
@@ -221,7 +221,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true - statek został zatopiony; flase - statek nie został zatopiony </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>vektor indexów pól na których leży zatopiony statek, pusty, jeśli nie zatopiony, lub nie ma statku </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a4bfc6a5d636230bfea652ac6c3afac94" title="określenie gracza wykonującego ruch ">round_</a> </dd></dl>
 
 </div>

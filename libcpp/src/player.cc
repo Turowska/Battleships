@@ -77,13 +77,14 @@ void Player::Sunk(int number) {
     }
 }
 
-bool Player::GetIsSunk(int number) {
+std::vector<int> Player::GetIsSunk(int number) {
     for (auto i = ships_.begin(); i != ships_.end(); ++i) {
-	if ((*i).IsInField(number)) {
-	    return (*i).GetIsAfloat();
+	if ((*i).IsInField(number) && (*i).GetIsAfloat()) {
+	    return (*i).GetIndex();
 	}
     }
-    return false;
+    std::vector<int> empty;
+    return empty;
 }
 
 bool Player::EndGame() {

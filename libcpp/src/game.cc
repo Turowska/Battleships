@@ -24,7 +24,7 @@ bool Game::Shot(int number, int player) {
     }
 }
 
-bool Game::IsSunk(int number) {
+std::vector<int> Game::IsSunk(int number) {
     if (round_) {
 	return players_.second.GetIsSunk(number);
     }

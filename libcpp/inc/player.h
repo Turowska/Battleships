@@ -33,11 +33,11 @@ class Player {
 	/**
 	* @brief sprawdzenie czy statek jest zatopiony
 	*
-	* metoda sprawdza czy statek znajdujący się między innymi na podanym polu jest zatopiony, tzn. czy wszystkie pola na których się znajuje zostały sprawdzone
+	* metoda sprawdza czy statek, leży między innymi na podanym polu, jest zatopiony, i zwraca numery pól na których leży
 	* @param index pola na którym znajduje się statek
-	* @return true - statek został zatopiony; false - statek nie został zatopiony
+	* @return vector numerów na których znajduje się statek, pusty jeśli statek nie jest zatopiony lub na danym polu nie ma statku
 	*/
-	bool GetIsSunk(int number);
+	std::vector<int> GetIsSunk(int number);
 	/**
 	* @brief sprawdzenie czy gra została zakończona
 	*

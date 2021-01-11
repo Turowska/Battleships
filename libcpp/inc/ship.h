@@ -49,6 +49,14 @@ class Ship {
 	* @see body_
 	*/
 	bool IsInField(int number);
+	/**
+	* @brief pobranie numery pól, na których leży statek
+	*
+	* metoda zwraca indexy pól znajdujących się na liście body_
+	* @return numery pól na których leży statek
+	* @see body_
+	*/
+	std::vector<int> GetIndex();
 
     private:
 	/**

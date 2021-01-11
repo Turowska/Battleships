@@ -24,3 +24,7 @@ bool Ship::IsInField(int number) {
     }
     return false;
 }
+
+std::vector<int> Ship::GetIndex() {
+    return body_;
+}

@@ -37,12 +37,12 @@ class PythonGame{
 	/**
 	* @brief wywoływana z poziomu pythona jako IsSunk(int)
 	*
-	* metoda wywołuje i zwraca wartość zwracaną przez metodę Game::IsSunk() przekazując jako argument index pola
+	* metoda wywołuje i zwraca wartość zwracaną przez metodę Game::IsSunk(), zmienioną na listę, przekazując jako argument index pola
 	* @param index pola, na którym znajduje się statek
-	* @return true - statek jest zatopiony; false - statek nie jest zatopiony
+	* @return lista indexów pól na których leży zatopiony statek, jeżeli statek nie jest zatopiony, lub na danym polu nie ma statku, zwraca pustą listę
 	* @see Game::IsSunk()
 	*/
-	bool IsSunk(int number);
+	list IsSunk(int number);
 	/**
 	* @brief wywoływana z poziomu pythona jako IsEnd()
 	*
