@@ -2,8 +2,6 @@ import React from "react"
 import { useGlobalContext } from "./context";
 import PlayerField from "./PlayerField";
 
-const width = 10;
-
 const validatePlacementHorizontally = (dropped, draggedShip) => {
   let droppedWidth = dropped % 10;
   if(droppedWidth + draggedShip.ship.length - draggedShip.grabbedIdx < 10 && droppedWidth + draggedShip.ship.length - draggedShip.grabbedIdx >= draggedShip.ship.length) {
@@ -31,7 +29,7 @@ const PlayerBoard = () => {
     const dropped = e.target.id;
     let newPlayerBoard = [...playerBoard];
 
-    if(draggedShip.ship.direction == 'horizontal') {
+    if(draggedShip.ship.direction === 'horizontal') {
       if(validatePlacementHorizontally(dropped, draggedShip)) {
         for (let index = 0; index <= draggedShip.ship.length; index++) {
           const idx  = parseInt(dropped) + parseInt(index) - parseInt(draggedShip.grabbedIdx);

@@ -1,6 +1,5 @@
-import React, {useState} from "react"
+import React from "react"
 import { useGlobalContext } from "../context";
-import { ships } from "../data";
 import ShipField from "./ShipField";
 
 

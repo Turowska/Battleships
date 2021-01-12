@@ -3,7 +3,7 @@ import { useGlobalContext } from "./context";
 import OpponentField from "./OpponentField";
 
 const OpponentBoard = () => {
-  const {opponentBoard, setOpponentBoard, playerTurn, playerNumber, socket } = useGlobalContext();
+  const {opponentBoard, playerTurn, playerNumber, socket } = useGlobalContext();
 
   const onClick = (e) => {
     const markedField = parseInt(e.target.id);
