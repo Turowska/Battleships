@@ -1,0 +1,24 @@
+import os
+import platform
+
+if platform.system() == "Windows":
+    print("Windows!")
+    env = Environment()
+    env.Append(CPPPATH = ['../inc'])
+    env.Append(LINKFLAGS='/SUBSYSTEM:CONSOLE') 
+    env.Append(CXXFLAGS='/EHsc /MD /std:c++17')
+    VariantDir('./objectCPP', '../src', duplicate=0)
+    resources = env.Object(['./objectCPP/field.cc', './objectCPP/board.cc', './objectCPP/ship.cc', './objectCPP/player.cc', './objectCPP/game.cc'])
+    VariantDir('./objectTest', './src', duplicate=0)
+    test = env.Object(Glob("./objectTest/*.cc"))
+    env.Program('./Test', [resources, test])
+else:
+    print("Linux!")
+    env = Environment()
+    env.Append(CPPPATH = ['../inc'])
+    env.Append(CXXFLAGS='-pedantic -Wall -std=c++17')
+    VariantDir('./objectCPP', '../src', duplicate=0)
+    resources = env.Object(['./objectCPP/field.cc', './objectCPP/board.cc', './objectCPP/ship.cc', './objectCPP/player.cc', './objectCPP/game.cc'])
+    VariantDir('./objectTest', './src', duplicate=0)
+    test = env.Object(Glob("./objectTest/*.cc"))
+    env.Program('./Test', [resources, test])

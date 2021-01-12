@@ -7,34 +7,59 @@ Game o-- Player
 Ship o-- Field
 
 class Ship {
-  -body_ : vector<Field>
+  -body_ : vector<int>
+  -is_afloat_ : bool
 
-  +GetSize()
-  +GetDirection()
-  +IsAfloat()
-  -FirstField()
+  +Ship(vector<int> &fields)
+  +int GetSize()
+  +bool GetIsAfloat()
+  +void Sunk()
+  +bool IsInField(int number)
+  +vector<int> GetIndex()
 }
 
 class Field {
   -is_occupied_ : bool
   -is_hit_ : bool
-  +ShotsFired()
+
+  +Field()
+  +void SetIsOccupied(bool is_occupied)
+  +bool GetIsOccupied()
+  +bool GetIsHit()
+  +bool ShotField()
 }
 
 class Game {
-  -players_ : pair<Player>
-  +Move(Player, x, y)
+  -players_ : pair<Player, Player>
+  -round_ : bool
+  -isGood_ : bool
+
+  +Game(array<bool, 100> firstPlayersBoard, array<bool, 100> secondPlayersBoard)
+  +bool IsGood()
+  +bool Shot(int number, int player)
+  +vector<int> IsSunk(int number)
+  +bool IsEnd()
 }
 
 class Board {
-  -fields_: vector<Field>
-  +Shot(x,y)
+  -fields_: array<Field, 100>
+
+  +Board(array<bool, 100> fields)
+  +bool GetIsOccupied(int number)
+  +bool GetIsHit(int number)
+  +bool Shot(int number)
 }
 
 class Player {
-  -players_board_: Board
-  -players_shots_: Board
+  -board_: Board
   -players_ships_ : vector<Ship>
+
+  -void sunk(int number)
+
+  +Player(array<bool, 100> fields)
+  +bool Shot(int number)
+  +vector<int> GetIsSunk(int number)
+  +bool EndGame()
 }
 
 @enduml

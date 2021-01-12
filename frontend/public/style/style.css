@@ -1,0 +1,161 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.boards-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.notifications {
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  margin: 2vmin;
+  display: grid;
+  background-color: hsl(200, 100%, 50%);
+  grid-template-rows: repeat(10, 4.6vmin);
+  grid-template-columns: repeat(10, 4.6vmin);
+}
+
+.underline {
+  width: 100%;
+  height: 0.25rem;
+  background: coral;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.board div {
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+}
+
+.header {
+  font-size: 3rem;
+  font-family: "Ultra", serif;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.footer {
+  text-align: center;
+  vertical-align: middle;
+  background-color: coral;
+}
+
+.btn {
+  margin: 10px;
+  background-color: coral;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0.2em;
+}
+
+.missed,
+.hit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hit::after,
+.missed::after {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  width: 2vmin;
+  height: 2vmin;
+}
+
+.hit::after {
+  background-color: red;
+}
+
+.missed::after {
+  background-color: black;
+}
+
+.display-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ship > div {
+  width: 4.6vmin;
+  height: 4.6vmin;
+}
+
+.ship {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(4.6vmin * var(--width, 1));
+  height: calc(4.6vmin * var(--height, 1));
+  margin: 1vmin;
+}
+
+.taken,
+.ship {
+  background-color: hsl(0, 0%, 70%);
+}
+
+.submarine-horizontal {
+  --width: 2;
+  height: 4.6vmin;
+}
+
+.destroyer-horizontal {
+  --width: 3;
+  height: 4.6vmin;
+}
+
+.destroyer-field {
+  width: 4.6vmin;
+  height: 4.6vmin;
+}
+
+.frigate-horizontal {
+  --width: 4;
+  --height: 1;
+}
+
+.patrol-horizontal {
+  --width: 1;
+  --height: 1;
+}
+
+.carrier-horizontal {
+  --width: 5;
+  --height: 1;
+}
+
+.submarine-vertical {
+  --height: 2;
+}
+
+.destroyer-vertical {
+  --height: 3;
+}
+
+.frigate-vertical {
+  --height: 4;
+}
+
+.carrier-vertical {
+  --height: 5;
+}
