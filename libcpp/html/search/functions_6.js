@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['isend',['IsEnd',['../classGame.html#ab001fd45be3c07b966a0a7fae6016bf6',1,'Game::IsEnd()'],['../classPythonGame.html#af14ced7ffb5a22c1e8438b378ef3d249',1,'PythonGame::IsEnd()']]],
-  ['isgood',['IsGood',['../classGame.html#a8559233494a5a68537924dd85f6c7c16',1,'Game::IsGood()'],['../classPlayer.html#a143b545bcda54d705ff37f4b90934925',1,'Player::IsGood()'],['../classPythonGame.html#aa7e31678817dcb667672b93f2da516a5',1,'PythonGame::IsGood()']]],
-  ['isinfield',['IsInField',['../classShip.html#a914855976d0b2cd6279e363a441103f8',1,'Ship']]],
-  ['issunk',['IsSunk',['../classGame.html#af0c0dceaf30d19511b639edf47af754b',1,'Game::IsSunk()'],['../classPythonGame.html#a46026741b8085b33369ca4facd5d4d21',1,'PythonGame::IsSunk()']]]
+  ['setisoccupied',['SetIsOccupied',['../classField.html#a33624f7fb4041245ee1fecaecb5cfac6',1,'Field']]],
+  ['ship',['Ship',['../classShip.html#ac16b34d5f01f16a62f65038d4330abe5',1,'Ship']]],
+  ['shot',['Shot',['../classBoard.html#a3ad431eb3f18a178e641ebdeb1ad0d0b',1,'Board::Shot()'],['../classGame.html#aa5f9765c46045318f316a9ede2df245c',1,'Game::Shot()'],['../classPlayer.html#a58677f82cf35daa1bf1a432e3c221722',1,'Player::Shot()'],['../classPythonGame.html#ac2eb74cec970628a27fd8f2832e91257',1,'PythonGame::Shot()']]],
+  ['shotfield',['ShotField',['../classField.html#af93564ca93e22ce4393742d6bc29a176',1,'Field']]],
+  ['sunk',['Sunk',['../classPlayer.html#a7fd85415e796b7a641552d0a96d46cb2',1,'Player::Sunk()'],['../classShip.html#a41265cfd8c9c3592d312ca111ce9e907',1,'Ship::Sunk()']]]
 ];

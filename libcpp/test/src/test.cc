@@ -210,7 +210,7 @@ BOOST_AUTO_TEST_CASE(player_endGame3) {
 BOOST_AUTO_TEST_CASE(player_isGood1) {
   std::array<bool, 100> board = {false};
   Player player = Player(board);
-  BOOST_CHECK(player.IsGood() == true);
+  BOOST_CHECK(player.IsGood() == false);
 }
 
 BOOST_AUTO_TEST_CASE(player_isGood2) {
@@ -236,6 +236,27 @@ BOOST_AUTO_TEST_CASE(player_isGood4) {
   board[3] = true;
   Player player = Player(board);
   BOOST_CHECK(player.IsGood() == false);
+}
+
+BOOST_AUTO_TEST_CASE(player_isGood5) {
+  std::array<bool, 100> board = {false};
+  board[0] = true;
+  board[1] = true;
+  board[2] = true;
+  board[3] = true;
+  board[4] = true;
+  board[23] = true;
+  board[24] = true;
+  board[25] = true;
+  board[26] = true;
+  board[41] = true;
+  board[42] = true;
+  board[43] = true;
+  board[67] = true;
+  board[68] = true;
+  board[83] = true;
+  Player player = Player(board);
+  BOOST_CHECK(player.IsGood() == true);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -359,7 +380,7 @@ BOOST_AUTO_TEST_CASE(is_good1) {
   std::array<bool, 100> firstBoard = {false};
   std::array<bool, 100> secondBoard = {false};
   Game game = Game(firstBoard, secondBoard);
-  BOOST_CHECK(game.IsGood() == true);
+  BOOST_CHECK(game.IsGood() == false);
 }
 
 BOOST_AUTO_TEST_CASE(is_good2) {
@@ -397,7 +418,7 @@ BOOST_AUTO_TEST_CASE(is_good5) {
   firstBoard[7] = true;
   secondBoard[16] = true;
   Game game = Game(firstBoard, secondBoard);
-  BOOST_CHECK(game.IsGood() == true);
+  BOOST_CHECK(game.IsGood() == false);
 }
 
 BOOST_AUTO_TEST_CASE(is_good6) {
@@ -406,7 +427,7 @@ BOOST_AUTO_TEST_CASE(is_good6) {
   firstBoard[6] = true;
   secondBoard[17] = true;
   Game game = Game(firstBoard, secondBoard);
-  BOOST_CHECK(game.IsGood() == true);
+  BOOST_CHECK(game.IsGood() == false);
 }
 
 BOOST_AUTO_TEST_CASE(is_good7) {
@@ -415,7 +436,7 @@ BOOST_AUTO_TEST_CASE(is_good7) {
   firstBoard[6] = true;
   secondBoard[15] = true;
   Game game = Game(firstBoard, secondBoard);
-  BOOST_CHECK(game.IsGood() == true);
+  BOOST_CHECK(game.IsGood() == false);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

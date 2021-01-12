@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['round_5f',['round_',['../classGame.html#a4bfc6a5d636230bfea652ac6c3afac94',1,'Game']]]
+  ['ships_5f',['ships_',['../classPlayer.html#a67bf4f0732cc5c47abdbda98f478f2e1',1,'Player']]]
 ];
