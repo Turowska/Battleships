@@ -7,73 +7,73 @@
 #include "ship.h"
 
 /**
-* @brief klasa odpowiadająca stanu gry po stronie pojedynczego gracza
+* @brief presents a single player
 *
-* klasa przechowująca planszę, ustawienie na niej statków, i strzały przeciwnika pojedynczego gracza, pozwalająca na wykonanie ruchu przez przeciwnika
+* stores positions of ships and enemy's hits
 */
 class Player {
 
     public:
 	/**
-	* @brief ustawienie statków na planszy
+	* @brief sets the ships
 	*
-	* konstruktor tworzy statki, oraz planszę z ustawionymi na niej statkami zgodnie z podaną tablicą
-	* @param tablica wskazująca na jakich polach stoją statki
+	* creates and sets the ships based on array given
+	* @param fields array with occupancy of fields
 	*/
 	Player(const std::array<bool, 100>& fields);
 	/**
-	* @brief dokonanie przez przeciwnika strzału na dane pole
+	* @brief allows the opponent to move
 	*
-	* metoda odpowiadająca dokonaniu strzału przez przeciwnika na podane pole; w przypadku trafienia sprawdza czy dany statek powinien być zatopiony zapomocą metody Sunk()
-	* @param numer indexu pola
-	* @return true - na danym polu znajdował się statek; false - dane pole było wolne
+	* checks field occupancy, and if field is occupied checks if the ship should be afloat by Sunk()
+	* @param numer index of field
+	* @return true - field is occupied; false - field is unoccupied
 	* @see Sunk()
 	*/
 	bool Shot(int number);
 	/**
-	* @brief sprawdzenie czy statek jest zatopiony
+	* @brief checks if ship is afloat
 	*
-	* metoda sprawdza czy statek, leży między innymi na podanym polu, jest zatopiony, i zwraca numery pól na których leży
-	* @param index pola na którym znajduje się statek
-	* @return vector numerów na których znajduje się statek, pusty jeśli statek nie jest zatopiony lub na danym polu nie ma statku
+	* checks if any ship is on the field, and if yes, checks if the ship is afloat
+	* @param number index of field
+	* @return list of indexes fields, on which the ship is, if ship is afloat. If ship is not afloat or any ship is not on field, list is empty
 	*/
 	std::vector<int> GetIsSunk(int number);
 	/**
-	* @brief sprawdzenie czy gra została zakończona
+	* @brief checks if play is end
 	*
-	* metoda sprawdzająca czy wszystkie statki zosały zatopione, co oznacza koniec gry i przegraną danego gracza
-	* @return true - wszystkie statki zostały zatopione; false - niewszystkie statki zostały zatopione
+	* checks if every ships are afloat
+	* @return true - play is end; false - play is not end
 	*/
 	bool EndGame();
 	/**
-	* @brief czy wystąpiły błędy
+	* @brief checks if everything is correct
 	*
-	* metoda sprawdza czy w trakcie działania programu wystąpiły błędy, którego mogą skutkować łamaniem zasad gry
-	* @return true - nie wystąpiły błędy; false - wystąpiły błędy
+	* checks if there are any errors that may cause the program will not run properly
+	* @return true - everything is correct; false - there are errors
 	*/
 	bool IsGood();
     private:
 	/**
-	* @brief plansza gracza
+	* @brief player's board
 	*/
 	Board board_;
 	/**
-	* @brief zbiór statków danego gracza
+	* @brief list of player's ships
 	*/
 	std::vector<Ship> ships_;
 	/**
-	* @brief pole przechowuje informacje, czy wystąpiły w trakcie działanie programu błędy
+	* @brief information about errors
 	*
-	* true - nie wystąpiły błędy
-	* false - wystąpiły błędy
+	* true - everything is correct
+	* false - there are errors
 	*/
 	bool isGood_;
 
 	/**
-	* @brief sprawdzenie czy dany statek powinien być zatopiony
+	* @brief checks if the ship should be afloat
 	*
-	* metoda sprawdza czy wszystkie pola na których stoi statek zostały sprawdzone, jeżeli tak zmienia stan statku na zatopiony
-	* @param index jednego z pól na którym stoi statek
+	* sets ship as be afloat if every fields, on which it is, have been checked
+	* @param number index of one of fields, on which ship is
 	*/
 	void Sunk(int number);
 };

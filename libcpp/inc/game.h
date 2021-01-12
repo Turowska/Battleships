@@ -8,73 +8,72 @@
 #include "player.h"
 
 /**
-* @brief klasa przechowująca i przetwarzająca dane gry w okręty
+* @brief class that keeps the state of the game - the battleships
 */
 class Game {
 
     public:
 	/**
-	* @brief stworzenie planszy na podstawie dwóch tablic
+	* @brief creats players' boards and sets their ships
 	*
-	* konstruktor na podstawie dwóch tablic tworzy dwie plansze i ustawia na nich statki graczy
-	* @param tablica na podstawie której ustawiane zostają statki pierwszego gracza
-	* @param tablica na podstawie której ustawiane zostają statki drugiego gracza
+	* ships are sets base on given arrays
+	* @param firstPlayerBoard first player's array
+	* @param secondPlayerBoard second player's array
 	*/
 	Game(const std::array<bool, 100>& firstPlayersBoard,
        const std::array<bool, 100>& secondPlayersBoard);
 	/**
-	* @brief wykonanie strzału
+	* @brief checks opponent's field
 	*
-	* gracz wykonuje sprawdzenie danego pola z planszy przeciwnika, możliwa zamiana gracza wykonującego ruch, tzn. wartości pola round_
-	* @param index pola
-	* @param index określający gracza wykonującego ruch
-	* @return true - na danym polu był statek przeciwnika; false - na danym polu nie było statku przeciwnika
+	* player, which is determined by given index, makes a move and checks one of opponent's field, which index is given, sets the values of the fields round_
+	* @param number index of field
+	* @param player index of player
+	* @return true - field is occupied; false - field is unoccupied
 	* @see round_
 	*/
 	bool Shot(int number, int player);
 	/**
-	* @brief czy statek został zatopiony
+	* @brief checks if opponent's ship is afloat
 	*
-	* metoda sprawdza, czy statek przeciwnika gracza, którego kolej (określona za pomocą pola round_), znajdujący się między innymi na danym polu, został zatopiony
-	* @param index pola
-	* @return vektor indexów pól na których leży zatopiony statek, pusty, jeśli nie zatopiony, lub nie ma statku
+	* player is determined by the field round_
+	* @param number index of field
+	* @return list of indexes fields, on which the ship is, if ship is afloat. If ship is not afloat or any ship is not on field, list is empty
 	* @see round_
 	*/
 	std::vector<int> IsSunk(int number);
 	/**
-	* @brief czy koniec gry
+	* @brief checks if play is end
 	*
-	* metoda sprawdza czy nastąpił koniec gry, tzn. czy wszystkie statki któregoś z graczy zostały zatopione
-	* @return true - nastąpił koniec gry; false - nie nastąpił jeszcze koniec gry
+	* checks if every ships one of players are afloat
+	* @return true - play is end; false - play is not end
 	*/
 	bool IsEnd();
 	/**
-	* @brief czy wystąpiły błędy
+	* @brief checks if everything is correct
 	*
-	* metoda sprawdza czy w trakcie działania programu wystąpiły błędy, którego mogą skutkować łamaniem zasad gry
-	* @return true - nie wystąpiły błędy; false - wystąpiły błędy
+	* checks if there are any errors that may cause the program will not run properly
+	* @return true - everything is correct; false - there are errors
 	*/
 	bool IsGood();
 
     private:
 	/**
-	* @brief określenie gracza wykonującego ruch
+	* @brief which player made the move
 	*
-	* true - ruch wykonuje gracz pierwszy
-	* false - ruch wykonuje gracz drugi
+	* true - first player
+	* false - second player
 	*/
 	bool round_;
 	/**
-	* @brief pole przechowuje informacje, czy wystąpiły w trakcie działanie programu błędy
+	* @brief information about errors
 	*
-	* true - nie wystąpiły błędy
-	* false - wystąpiły błędy
+	* true - everything is correct
+	* false - there are errors
 	*/
 	bool isGood_;
 	/**
-	* @brief plansze graczy
+	* @brief players' ships and decisions
 	*
-	* pole przechowuje dane potrzebne do gry dla poszczególnych graczy
 	*/
 	std::pair<Player, Player> players_;
 };

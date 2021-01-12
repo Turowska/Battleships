@@ -4,71 +4,70 @@
 #include <vector>
 
 /**
-* @brief klasa odpowiadająca statku
+* @brief presents a ship
 *
-* kontener przytrzymujący i przetwarzający dane o statku: na których polach stoi statek, czy został zatopiony, jakiego jest rozmiaru
+* stores information about the ship: size, position, state
 */
 class Ship {
 
     public:
 	/**
-	* @brief tworzy statek leżacy na podanych polach
+	* @brief creats the ship in the spaces given
 	*
-	* @param lista indexów pól na których stoi statek
+	* @param fields list of space indexes
 	*/
 	Ship(const std::vector<int> &fields);
 	/**
-	* @brief metoda oblicza rozmiar statku
+	* @brief checking the size of the ship
 	*
-	* metoda sprawdza rozmiar listy indexów pól na których stoi statek body_
-	* @return ilość pól zajmowanych przez statek
+	* checks size of list of indexes body_
+	* @return size of ship
 	* @see body_
 	*/
 	int GetSize();
 	/**
-	* @brief sprawdza czy statek jest zatopiony
+	* @brief checking if the ship is sunk
 	*
-	* metoda sprawdza wartość pola is_afloat_
-	* @return zwraca wartość pola is_afloat_
+	* checks the value of the field is_afloat_
+	* @return the value of the field is_afloat_
 	* @see is_afloat_
 	*/
 	bool GetIsAfloat();
 	/**
-	* @brief zatopienie statku
+	* @brief sunks the ship
 	*
-	* metoda ustwia wartość pola is_afloat_ na true
+	* sets the value of the field is_afloat_ to true
 	* @see is_afloat_
 	*/
 	void Sunk();
 	/**
-	* @brief sprawdza czy statek leży na danym polu
+	* @brief cheking position the ship
 	*
-	* metoda sprawdza czy dany index jest na liście body_
-	* @param index pola
-	* @return true - statek leży na danym polu; false - statek nie leży na danym polu
+	* checks if there is the ship on the field with the given index, if the index is on the list body_
+	* @param number index of field
+	* @return true - the ship is on the field; false - the ship is not on the field
 	* @see body_
 	*/
 	bool IsInField(int number);
 	/**
-	* @brief pobranie numery pól, na których leży statek
+	* @brief cheking position the ship
 	*
-	* metoda zwraca indexy pól znajdujących się na liście body_
-	* @return numery pól na których leży statek
+	* @return indexes, which are on the list body_
 	* @see body_
 	*/
 	std::vector<int> GetIndex();
 
     private:
 	/**
-	* @brief lista indexów pól na których leży statek
+	* @brief lindexes of the fields on which the ship is
 	*/
 	std::vector<int> body_;
 	/**
-	* @brief przechowuje informację o zatopieniu statku
+	* @brief information about the sinking of the ship
 	*
-	* przechowuje informację o sprawdzeniu wszystkich pól, których indexy znajdują się na liście body_
-	* true - statek został zatopiony, wszystkie pola zostały sprawdzone
-	* false - statek nie został zatopiony
+	* the ship is afloat if all the spaces, on which it is, have been checked
+	* true - the ship is afloat
+	* false - the ship has not been afloat yet
 	* @see body_
 	*/
 	bool is_afloat_;

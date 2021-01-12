@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,41 +91,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>klasa odpowiadająca pojedynczemu polu na planszy  
+<p>presents a single field on the player's board  
  <a href="classField.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="field_8h_source.html">field.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Field:</div>
+<div class="dyncontent">
+<div class="center"><img src="classField__coll__graph.png" border="0" usemap="#Field_coll__map" alt="Collaboration graph"/></div>
+<map name="Field_coll__map" id="Field_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e804c92273d9159f413f227b535c672"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a3e804c92273d9159f413f227b535c672">Field</a> ()</td></tr>
-<tr class="memdesc:a3e804c92273d9159f413f227b535c672"><td class="mdescLeft">&#160;</td><td class="mdescRight">konstruktor tworzący niezajęte i niesprawdzone pole  <a href="#a3e804c92273d9159f413f227b535c672">More...</a><br /></td></tr>
+<tr class="memdesc:a3e804c92273d9159f413f227b535c672"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates an unoccupied and unchecked field  <a href="#a3e804c92273d9159f413f227b535c672">More...</a><br /></td></tr>
 <tr class="separator:a3e804c92273d9159f413f227b535c672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33624f7fb4041245ee1fecaecb5cfac6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a33624f7fb4041245ee1fecaecb5cfac6">SetIsOccupied</a> (bool is_occupied)</td></tr>
-<tr class="memdesc:a33624f7fb4041245ee1fecaecb5cfac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">zajmuje i zwalnia pole  <a href="#a33624f7fb4041245ee1fecaecb5cfac6">More...</a><br /></td></tr>
+<tr class="memdesc:a33624f7fb4041245ee1fecaecb5cfac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes up and releases the field  <a href="#a33624f7fb4041245ee1fecaecb5cfac6">More...</a><br /></td></tr>
 <tr class="separator:a33624f7fb4041245ee1fecaecb5cfac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0bf2295004b636f3aa80b3984d4439d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ac0bf2295004b636f3aa80b3984d4439d">GetIsOccupied</a> () const </td></tr>
-<tr class="memdesc:ac0bf2295004b636f3aa80b3984d4439d"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza zajętość pola  <a href="#ac0bf2295004b636f3aa80b3984d4439d">More...</a><br /></td></tr>
+<tr class="memdesc:ac0bf2295004b636f3aa80b3984d4439d"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether the field is occupied  <a href="#ac0bf2295004b636f3aa80b3984d4439d">More...</a><br /></td></tr>
 <tr class="separator:ac0bf2295004b636f3aa80b3984d4439d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7c2fc8c5a8b10a4d6d86c930deddd12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ac7c2fc8c5a8b10a4d6d86c930deddd12">GetIsHit</a> () const </td></tr>
-<tr class="memdesc:ac7c2fc8c5a8b10a4d6d86c930deddd12"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza czy pole zostało sprawdzone  <a href="#ac7c2fc8c5a8b10a4d6d86c930deddd12">More...</a><br /></td></tr>
+<tr class="memdesc:ac7c2fc8c5a8b10a4d6d86c930deddd12"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether the field has been checked  <a href="#ac7c2fc8c5a8b10a4d6d86c930deddd12">More...</a><br /></td></tr>
 <tr class="separator:ac7c2fc8c5a8b10a4d6d86c930deddd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af93564ca93e22ce4393742d6bc29a176"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#af93564ca93e22ce4393742d6bc29a176">ShotField</a> ()</td></tr>
-<tr class="memdesc:af93564ca93e22ce4393742d6bc29a176"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza pole  <a href="#af93564ca93e22ce4393742d6bc29a176">More...</a><br /></td></tr>
+<tr class="memdesc:af93564ca93e22ce4393742d6bc29a176"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks the field  <a href="#af93564ca93e22ce4393742d6bc29a176">More...</a><br /></td></tr>
 <tr class="separator:af93564ca93e22ce4393742d6bc29a176"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ad67f3e29151e449decb08545e807f2d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5">is_occupied_</a></td></tr>
-<tr class="memdesc:ad67f3e29151e449decb08545e807f2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">zajętość pola  <a href="#ad67f3e29151e449decb08545e807f2d5">More...</a><br /></td></tr>
+<tr class="memdesc:ad67f3e29151e449decb08545e807f2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores information about the field occupancy  <a href="#ad67f3e29151e449decb08545e807f2d5">More...</a><br /></td></tr>
 <tr class="separator:ad67f3e29151e449decb08545e807f2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3140df03964b457955aad4888788589b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a3140df03964b457955aad4888788589b">is_hit_</a></td></tr>
-<tr class="memdesc:a3140df03964b457955aad4888788589b"><td class="mdescLeft">&#160;</td><td class="mdescRight">czy pole zostało już sprawdzone  <a href="#a3140df03964b457955aad4888788589b">More...</a><br /></td></tr>
+<tr class="memdesc:a3140df03964b457955aad4888788589b"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores information about checking the field  <a href="#a3140df03964b457955aad4888788589b">More...</a><br /></td></tr>
 <tr class="separator:a3140df03964b457955aad4888788589b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>klasa odpowiadająca pojedynczemu polu na planszy </p>
-<p>kontener przechowujący informacje o zajętości pola i oddaniu strzału na dane pole </p>
+<div class="textblock"><p>presents a single field on the player's board </p>
+<p>stores information about the field being occupied and the shot being taken on this field </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3e804c92273d9159f413f227b535c672"></a>
 <div class="memitem">
@@ -139,10 +147,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>konstruktor tworzący niezajęte i niesprawdzone pole </p>
-<p>konstruktor, ustawia wartość pól is_occupied_ i is_hit_ na false </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5" title="zajętość pola ">is_occupied_</a> </dd>
+<p>creates an unoccupied and unchecked field </p>
+<p>the constructor sets the values of the fields is_occupied_ and is_hit_ to false </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5" title="stores information about the field occupancy ">is_occupied_</a> </dd>
 <dd>
-<a class="el" href="classField.html#a3140df03964b457955aad4888788589b" title="czy pole zostało już sprawdzone ">is_hit_</a> </dd></dl>
+<a class="el" href="classField.html#a3140df03964b457955aad4888788589b" title="stores information about checking the field ">is_hit_</a> </dd></dl>
 
 </div>
 </div>
@@ -160,9 +168,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sprawdza czy pole zostało sprawdzone </p>
-<p>metoda sprawdza wartość pola is_hit_ </p><dl class="section return"><dt>Returns</dt><dd>wartość pola is_hit_ </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#a3140df03964b457955aad4888788589b" title="czy pole zostało już sprawdzone ">is_hit_</a> </dd></dl>
+<p>checks whether the field has been checked </p>
+<p>checks the value of the field is_hit_ </p><dl class="section return"><dt>Returns</dt><dd>the value of the field is_hit_ </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#a3140df03964b457955aad4888788589b" title="stores information about checking the field ">is_hit_</a> </dd></dl>
 
 </div>
 </div>
@@ -179,9 +187,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sprawdza zajętość pola </p>
-<p>metoda sprawdza wartość pola is_occupied_ </p><dl class="section return"><dt>Returns</dt><dd>wartość pola is_occupied_ </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5" title="zajętość pola ">is_occupied_</a> </dd></dl>
+<p>checks whether the field is occupied </p>
+<p>checks the value of the field is_occupied_ </p><dl class="section return"><dt>Returns</dt><dd>the value of the field is_occupied_ </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5" title="stores information about the field occupancy ">is_occupied_</a> </dd></dl>
 
 </div>
 </div>
@@ -199,14 +207,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>zajmuje i zwalnia pole </p>
-<p>metoda ustawia wartość pola is_occupied_ </p><dl class="params"><dt>Parameters</dt><dd>
+<p>takes up and releases the field </p>
+<p>sets the value of the field is_occupied_ to the given value </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">is_occupied</td><td>wartość jaka ma zostać przypisana polu is_occupied_ </td></tr>
+    <tr><td class="paramname">is_occupied</td><td>value to be set </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5" title="zajętość pola ">is_occupied_</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5" title="stores information about the field occupancy ">is_occupied_</a> </dd></dl>
 
 </div>
 </div>
@@ -223,11 +231,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sprawdza pole </p>
-<p>metoda ustwaia pole is_hit_ na true i sprawdza wartość pola is_occupied_ </p><dl class="section return"><dt>Returns</dt><dd>wartość pola is_occupied_ </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#a3140df03964b457955aad4888788589b" title="czy pole zostało już sprawdzone ">is_hit_</a> </dd>
+<p>checks the field </p>
+<p>sets the value of the field is_hit_ to true and checks the value of the field is_occupied_ </p><dl class="section return"><dt>Returns</dt><dd>the value of the field is_occupied_ </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classField.html#a3140df03964b457955aad4888788589b" title="stores information about checking the field ">is_hit_</a> </dd>
 <dd>
-<a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5" title="zajętość pola ">is_occupied_</a> </dd></dl>
+<a class="el" href="classField.html#ad67f3e29151e449decb08545e807f2d5" title="stores information about the field occupancy ">is_occupied_</a> </dd></dl>
 
 </div>
 </div>
@@ -250,8 +258,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>czy pole zostało już sprawdzone </p>
-<p>przechowuje informacje czy dane pole zostało sprawdzone true - pole zostało sprawdzone false - pole nie zostało jeszcze sprawdzone </p>
+<p>stores information about checking the field </p>
+<p>true - the field has been checked false - the field has not been checked yet </p>
 
 </div>
 </div>
@@ -273,14 +281,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>zajętość pola </p>
-<p>przechowuje informacje czy dane pole jest zajęte true - pole jest zajęte false - pole jest wolne </p>
+<p>stores information about the field occupancy </p>
+<p>true - the field is occupied false - the field is unoccupied </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>inc/<a class="el" href="field_8h_source.html">field.h</a></li>
-<li>src/field.cc</li>
+<li>src/<a class="el" href="field_8cc.html">field.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

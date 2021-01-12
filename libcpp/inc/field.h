@@ -2,50 +2,50 @@
 #define BATTLESHIPS_LIBCPP_INC_FIELD_H_
 
 /**
-* @brief klasa odpowiadająca pojedynczemu polu na planszy
+* @brief presents a single field on the player's board
 *
-* kontener przechowujący informacje o zajętości pola i oddaniu strzału na dane pole
+* stores information about the field being occupied and the shot being taken on this field
 */
 class Field {
 
     public:
 	/**
-	* @brief konstruktor tworzący niezajęte i niesprawdzone pole
+	* @brief creates an unoccupied and unchecked field
 	*
-	* konstruktor, ustawia wartość pól is_occupied_ i is_hit_ na false
+	* the constructor sets the values of the fields is_occupied_ and is_hit_ to false
 	* @see is_occupied_
 	* @see is_hit_
 	*/
 	Field();
 	/**
-	* @brief zajmuje i zwalnia pole
+	* @brief takes up and releases the field
 	*
-	* metoda ustawia wartość pola is_occupied_
-	* @param is_occupied wartość jaka ma zostać przypisana polu is_occupied_
+	* sets the value of the field is_occupied_ to the given value
+	* @param is_occupied value to be set
 	* @see is_occupied_
 	*/
 	void SetIsOccupied(bool is_occupied);
 	/**
-	* @brief sprawdza zajętość pola
+	* @brief checks whether the field is occupied
 	*
-	* metoda sprawdza wartość pola is_occupied_
-	* @return wartość pola is_occupied_
+	* checks the value of the field is_occupied_
+	* @return the value of the field is_occupied_
 	* @see is_occupied_
 	*/
 	bool GetIsOccupied() const;
 	/**
-	* @brief sprawdza czy pole zostało sprawdzone
+	* @brief checks whether the field has been checked
 	*
-	* metoda sprawdza wartość pola is_hit_
-	* @return wartość pola is_hit_
+	* checks the value of the field is_hit_
+	* @return the value of the field is_hit_
 	* @see is_hit_
 	*/
 	bool GetIsHit() const;
 	/**
-	* @brief sprawdza pole
+	* @brief checks the field
 	*
-	* metoda ustwaia pole is_hit_ na true i sprawdza wartość pola is_occupied_
-	* @return wartość pola is_occupied_
+	* sets the value of the field is_hit_ to true and checks the value of the field is_occupied_
+	* @return the value of the field is_occupied_
 	* @see is_hit_
 	* @see is_occupied_
 	*/
@@ -53,19 +53,17 @@ class Field {
 
     private:
 	/**
-	* @brief zajętość pola
+	* @brief stores information about the field occupancy
 	*
-	* przechowuje informacje czy dane pole jest zajęte
-	* true - pole jest zajęte
-	* false - pole jest wolne
+	* true - the field is occupied
+	* false - the field is unoccupied
 	*/
 	bool is_occupied_;
 	/**
-	* @brief czy pole zostało już sprawdzone
+	* @brief stores information about checking the field
 	*
-	* przechowuje informacje czy dane pole zostało sprawdzone
-	* true - pole zostało sprawdzone
-	* false - pole nie zostało jeszcze sprawdzone
+	* true - the field has been checked
+	* false - the field has not been checked yet
 	*/
 	bool is_hit_;
 };
