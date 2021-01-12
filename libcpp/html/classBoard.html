@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,24 +91,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>klasa odpowiadająca planszy  
+<p>presents the player's board  
  <a href="classBoard.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="board_8h_source.html">board.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Board:</div>
+<div class="dyncontent">
+<div class="center"><img src="classBoard__coll__graph.png" border="0" usemap="#Board_coll__map" alt="Collaboration graph"/></div>
+<map name="Board_coll__map" id="Board_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a63edea27b1d73a52898d7e4d1f40032b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a63edea27b1d73a52898d7e4d1f40032b">Board</a> (const std::array&lt; bool, 100 &gt; &amp;fields)</td></tr>
-<tr class="memdesc:a63edea27b1d73a52898d7e4d1f40032b"><td class="mdescLeft">&#160;</td><td class="mdescRight">tworzy planszę z ustawionymi statkami według tablicy array&lt;bool, 100&gt;  <a href="#a63edea27b1d73a52898d7e4d1f40032b">More...</a><br /></td></tr>
+<tr class="memdesc:a63edea27b1d73a52898d7e4d1f40032b"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates board and sets ships by array  <a href="#a63edea27b1d73a52898d7e4d1f40032b">More...</a><br /></td></tr>
 <tr class="separator:a63edea27b1d73a52898d7e4d1f40032b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d8789fdfa8f7b1a900a755be32ea4a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a3d8789fdfa8f7b1a900a755be32ea4a4">GetIsOccupied</a> (int number) const </td></tr>
-<tr class="memdesc:a3d8789fdfa8f7b1a900a755be32ea4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza zajętość pola o podanym indexie  <a href="#a3d8789fdfa8f7b1a900a755be32ea4a4">More...</a><br /></td></tr>
+<tr class="memdesc:a3d8789fdfa8f7b1a900a755be32ea4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks the occupation of the field with the given index  <a href="#a3d8789fdfa8f7b1a900a755be32ea4a4">More...</a><br /></td></tr>
 <tr class="separator:a3d8789fdfa8f7b1a900a755be32ea4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4528fb4410d82a31d5a19d92b0638e93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a4528fb4410d82a31d5a19d92b0638e93">GetIsHit</a> (int number) const </td></tr>
-<tr class="memdesc:a4528fb4410d82a31d5a19d92b0638e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza czy pola o podanym indexie zostało sprawdzone  <a href="#a4528fb4410d82a31d5a19d92b0638e93">More...</a><br /></td></tr>
+<tr class="memdesc:a4528fb4410d82a31d5a19d92b0638e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the field with the given index has been checked  <a href="#a4528fb4410d82a31d5a19d92b0638e93">More...</a><br /></td></tr>
 <tr class="separator:a4528fb4410d82a31d5a19d92b0638e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ad431eb3f18a178e641ebdeb1ad0d0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a3ad431eb3f18a178e641ebdeb1ad0d0b">Shot</a> (int number)</td></tr>
-<tr class="memdesc:a3ad431eb3f18a178e641ebdeb1ad0d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">oodanie strzału  <a href="#a3ad431eb3f18a178e641ebdeb1ad0d0b">More...</a><br /></td></tr>
+<tr class="memdesc:a3ad431eb3f18a178e641ebdeb1ad0d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">taking a shot  <a href="#a3ad431eb3f18a178e641ebdeb1ad0d0b">More...</a><br /></td></tr>
 <tr class="separator:a3ad431eb3f18a178e641ebdeb1ad0d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -116,8 +124,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aa7d8efd3cbd504ec47731a97ae97e240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>klasa odpowiadająca planszy </p>
-<p>kontener przechowujący 100 kontenerów klasy <a class="el" href="classField.html" title="klasa odpowiadająca pojedynczemu polu na planszy ">Field</a> </p>
+<div class="textblock"><p>presents the player's board </p>
+<p>stores 100 <a class="el" href="classField.html" title="presents a single field on the player&#39;s board ">Field</a> objects </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a63edea27b1d73a52898d7e4d1f40032b"></a>
 <div class="memitem">
@@ -133,10 +141,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>tworzy planszę z ustawionymi statkami według tablicy array&lt;bool, 100&gt; </p>
-<p>tworzy tablicę 100 pól o zajętości każdego pola odpowiadającego wartości pola w tablicy array&lt;bool, 100&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+<p>creates board and sets ships by array </p>
+<p>the occupation of a given field is set to the value of the field in a given array </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tablica</td><td>na podstawie której ustalana jest zajętość pól w tablicy </td></tr>
+    <tr><td class="paramname">fields</td><td>board with the arrangement of ships </td></tr>
   </table>
   </dd>
 </dl>
@@ -158,14 +166,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sprawdza czy pola o podanym indexie zostało sprawdzone </p>
+<p>checks if the field with the given index has been checked </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>pola, które ma zostać sprawdzone </td></tr>
+    <tr><td class="paramname">number</td><td>index of the field </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>czy polezostało sprawdzone (true - pole zostało sprawdzone; false - pole nie zostało jeszcze sprawdzone) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true - the field has been checked; false - the field has not been checked yet </dd></dl>
 
 </div>
 </div>
@@ -183,14 +191,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sprawdza zajętość pola o podanym indexie </p>
+<p>checks the occupation of the field with the given index </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>pola, którego zajętość ma zostać sprawdzona </td></tr>
+    <tr><td class="paramname">number</td><td>index of the field </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>zajętość sprawdzonego pola (true - pole jest zajęte; false - pole jest wolne) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>field occupancy (true - the field is occupied; false - the field is unoccupied) </dd></dl>
 
 </div>
 </div>
@@ -208,14 +216,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>oodanie strzału </p>
-<p>metoda zmienia dane pole na sprawdzone i sprawdza jego zajętość </p><dl class="params"><dt>Parameters</dt><dd>
+<p>taking a shot </p>
+<p>sets the field with the given index as checked and checks its occupation </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>pola </td></tr>
+    <tr><td class="paramname">number</td><td>index of the field </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>zajętość pola (true - pole jest zajęte; false - pole jest wolne </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>field occupancy (true - the field is occupied; false - the field is unoccupied) </dd></dl>
 
 </div>
 </div>
@@ -237,13 +245,13 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>tablica pól </p>
+<p>array of field </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>inc/<a class="el" href="board_8h_source.html">board.h</a></li>
-<li>src/board.cc</li>
+<li>src/<a class="el" href="board_8cc.html">board.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

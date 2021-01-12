@@ -5,46 +5,46 @@
 #include "field.h"
 
 /**
-* @brief klasa odpowiadająca planszy
+* @brief presents the player's board
 *
-* kontener przechowujący 100 kontenerów klasy Field
+* stores 100 Field objects
 */
 class Board {
 
     public:
 	/**
-	* @brief tworzy planszę z ustawionymi statkami według tablicy array<bool, 100>
+	* @brief creates board and sets ships by array
 	*
-	* tworzy tablicę 100 pól o zajętości każdego pola odpowiadającego wartości pola w tablicy array<bool, 100>
-	* @param tablica na podstawie której ustalana jest zajętość pól w tablicy
+	* the occupation of a given field is set to the value of the field in a given array
+	* @param fields board with the arrangement of ships
 	*/
 	Board(const std::array<bool, 100>& fields);
 	/**
-	* @brief sprawdza zajętość pola o podanym indexie
+	* @brief checks the occupation of the field with the given index
 	*
-	* @param index pola, którego zajętość ma zostać sprawdzona
-	* @return zajętość sprawdzonego pola (true - pole jest zajęte; false - pole jest wolne)
+	* @param number index of the field
+	* @return field occupancy (true - the field is occupied; false - the field is unoccupied)
 	*/
 	bool GetIsOccupied(int number) const;
 	/**
-	* @brief sprawdza czy pola o podanym indexie zostało sprawdzone
+	* @brief checks if the field with the given index has been checked
 	*
-	* @param index pola, które ma zostać sprawdzone
-	* @return czy polezostało sprawdzone (true - pole zostało sprawdzone; false - pole nie zostało jeszcze sprawdzone)
+	* @param number index of the field
+	* @return true - the field has been checked; false - the field has not been checked yet
 	*/
 	bool GetIsHit(int number) const;
 	/**
-	* @brief oodanie strzału
+	* @brief taking a shot
 	*
-	* metoda zmienia dane pole na sprawdzone i sprawdza jego zajętość
-	* @param index pola
-	* @return zajętość pola (true - pole jest zajęte; false - pole jest wolne
+	* sets the field with the given index as checked and checks its occupation
+	* @param number index of the field
+	* @return field occupancy (true - the field is occupied; false - the field is unoccupied)
 	*/
 	bool Shot(int number);
 
     private:
 	/**
-	* tablica pól
+	* array of field
 	*/
 	std::array<Field, 100> fields_;
 };

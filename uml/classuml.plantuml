@@ -15,6 +15,7 @@ class Ship {
   +bool GetIsAfloat()
   +void Sunk()
   +bool IsInField(int number)
+  +vector<int> GetIndex()
 }
 
 class Field {
@@ -36,7 +37,7 @@ class Game {
   +Game(array<bool, 100> firstPlayersBoard, array<bool, 100> secondPlayersBoard)
   +bool IsGood()
   +bool Shot(int number, int player)
-  +bool IsSunk(int number)
+  +vector<int> IsSunk(int number)
   +bool IsEnd()
 }
 
@@ -44,9 +45,9 @@ class Board {
   -fields_: array<Field, 100>
 
   +Board(array<bool, 100> fields)
-  +bool getIsOccupied(int number)
-  +bool getIsHit(int number)
-  +bool shot(int number)
+  +bool GetIsOccupied(int number)
+  +bool GetIsHit(int number)
+  +bool Shot(int number)
 }
 
 class Player {
@@ -56,9 +57,9 @@ class Player {
   -void sunk(int number)
 
   +Player(array<bool, 100> fields)
-  +bool shot(int number)
-  +bool getIsSunk(int number)
-  +bool endGame()
+  +bool Shot(int number)
+  +vector<int> GetIsSunk(int number)
+  +bool EndGame()
 }
 
 @enduml

@@ -9,66 +9,69 @@
 using namespace boost::python;
 
 /**
-* @brief klasa kontrolująca dostęp do klasy Game i dostarczająca odpowiedni interfejs do wywołania metod klasy Game z poziomu pythona
+* @brief class that controls access to class Game and provides the appropriate interface for python
 */
 class PythonGame{
 
     public:
 	/**
-	* @brief wywoływana z poziomu pythona jako Game(list, list)
+	* @brief python: Game(list, list)
 	*
-	* konstruktor zamienia listy na tablice std::array i tworzy obiekt klasy Game za pomocą konstruktora Game::Game(), którego wskaźnik przechowuje w polu game_
-	* @param lista z danymi do stworzenia tablic dla pierwszego gracza
-	* @param lista z danymi do stworzenia tablic dla drugiego gracza
+	* changes list to array and shares Game::Game()
+	* @param tabListFirstPlayer first player's list, which should has 100 values true/false
+	* @param tabListSecondPlayer second player's list, which should has 100 values true/false
 	* @see Game::Game()
 	* @see game_
 	*/
 	PythonGame(list tabListFirstPlayer, list tabListSecondPlayer);
 	/**
-	* @brief wywoływana z poziomu pythona jako Shot(int, int)
+	* @brief python: Shot(int, int)
 	*
-	* metoda wywołuje i zwraca wartość zwracaną przez metodę Game::Shot() przekazując jako argument index pola i gracza
-	* @param index pola, które ma zostać sprawdzone
-	* @param index gracza wykonującego ruch
-	* @return true - pole jest zajęte; false - pole jest wolne
+	* shares Game::Shot(), with arguments:
+	* number - index of field
+	* player - index of player
+	* @param number index of field
+	* @param player index of player
+	* @return true - field is occupied; false - field is unoccupied
 	* @see Game::Shot()
 	*/
 	bool Shot(int number, int player);
 	/**
-	* @brief wywoływana z poziomu pythona jako IsSunk(int)
+	* @brief python: IsSunk(int)
 	*
-	* metoda wywołuje i zwraca wartość zwracaną przez metodę Game::IsSunk(), zmienioną na listę, przekazując jako argument index pola
-	* @param index pola, na którym znajduje się statek
-	* @return lista indexów pól na których leży zatopiony statek, jeżeli statek nie jest zatopiony, lub na danym polu nie ma statku, zwraca pustą listę
+	* shares Game::IsSunk(), with arguments:
+	* number - index of field
+	* @param number index of field
+	* @return list of indexes fields, on which the ship is, if ship is afloat. If ship is not afloat or any ship is not on field, list is empty
 	* @see Game::IsSunk()
 	*/
 	list IsSunk(int number);
 	/**
-	* @brief wywoływana z poziomu pythona jako IsEnd()
+	* @brief python: IsEnd()
 	*
-	* metoda wywołuje i zwraca wartość zwracaną przez metodę Game::IsEnd()
-	* @return true - koniec gry; false - nie nastąpił jeszcze koniec gry
+	* shares Game::IsEnd()
+	* @return true - play is end; false - play is not end
 	* @see Game::IsEnd()
 	*/
 	bool IsEnd();
 	/**
-	* @brief wywoływana z poziomu pythona jako IsGood()
+	* @brief python: IsGood()
 	*
-	* metoda sprawdza czy w trakcie działania programu wystąpiły błędy, którego mogą skutkować łamaniem zasad gry
-	* @return true - nie wystąpiły błędy; false - wystąpiły błędy
+	* checks if there are any errors that may cause the program will not run properly
+	* @return true - everything is correct; false - there are errors
 	*/
 	bool IsGood();
 
     private:
 	/**
-	* @brief wskaźnik na oryginalny obiekt do którego kontrolowany jest dostęp
+	* @brief the object to which access is controlled
 	*/
 	Game* game_;
 	/**
-	* @brief pole przechowuje informacje, czy wystąpiły w trakcie działanie programu błędy
+	* @brief checks if everything is correct
 	*
-	* true - nie wystąpiły błędy
-	* false - wystąpiły błędy
+	* checks if there are any errors that may cause the program will not run properly
+	* @return true - everything is correct; false - there are errors
 	*/
 	bool isGood_;
 

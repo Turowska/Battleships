@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,43 +91,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>klasa przechowująca i przetwarzająca dane gry w okręty  
+<p>class that keeps the state of the game - the battleships  
  <a href="classGame.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="game_8h_source.html">game.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Game:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGame__coll__graph.png" border="0" usemap="#Game_coll__map" alt="Collaboration graph"/></div>
+<map name="Game_coll__map" id="Game_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a922f9d489afd5781e18080d8d014a3f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a922f9d489afd5781e18080d8d014a3f4">Game</a> (const std::array&lt; bool, 100 &gt; &amp;firstPlayersBoard, const std::array&lt; bool, 100 &gt; &amp;secondPlayersBoard)</td></tr>
-<tr class="memdesc:a922f9d489afd5781e18080d8d014a3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">stworzenie planszy na podstawie dwóch tablic  <a href="#a922f9d489afd5781e18080d8d014a3f4">More...</a><br /></td></tr>
+<tr class="memdesc:a922f9d489afd5781e18080d8d014a3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">creats players' boards and sets their ships  <a href="#a922f9d489afd5781e18080d8d014a3f4">More...</a><br /></td></tr>
 <tr class="separator:a922f9d489afd5781e18080d8d014a3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5f9765c46045318f316a9ede2df245c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aa5f9765c46045318f316a9ede2df245c">Shot</a> (int number, int player)</td></tr>
-<tr class="memdesc:aa5f9765c46045318f316a9ede2df245c"><td class="mdescLeft">&#160;</td><td class="mdescRight">wykonanie strzału  <a href="#aa5f9765c46045318f316a9ede2df245c">More...</a><br /></td></tr>
+<tr class="memdesc:aa5f9765c46045318f316a9ede2df245c"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks opponent's field  <a href="#aa5f9765c46045318f316a9ede2df245c">More...</a><br /></td></tr>
 <tr class="separator:aa5f9765c46045318f316a9ede2df245c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0c0dceaf30d19511b639edf47af754b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#af0c0dceaf30d19511b639edf47af754b">IsSunk</a> (int number)</td></tr>
-<tr class="memdesc:af0c0dceaf30d19511b639edf47af754b"><td class="mdescLeft">&#160;</td><td class="mdescRight">czy statek został zatopiony  <a href="#af0c0dceaf30d19511b639edf47af754b">More...</a><br /></td></tr>
+<tr class="memdesc:af0c0dceaf30d19511b639edf47af754b"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if opponent's ship is afloat  <a href="#af0c0dceaf30d19511b639edf47af754b">More...</a><br /></td></tr>
 <tr class="separator:af0c0dceaf30d19511b639edf47af754b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab001fd45be3c07b966a0a7fae6016bf6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ab001fd45be3c07b966a0a7fae6016bf6">IsEnd</a> ()</td></tr>
-<tr class="memdesc:ab001fd45be3c07b966a0a7fae6016bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">czy koniec gry  <a href="#ab001fd45be3c07b966a0a7fae6016bf6">More...</a><br /></td></tr>
+<tr class="memdesc:ab001fd45be3c07b966a0a7fae6016bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if play is end  <a href="#ab001fd45be3c07b966a0a7fae6016bf6">More...</a><br /></td></tr>
 <tr class="separator:ab001fd45be3c07b966a0a7fae6016bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8559233494a5a68537924dd85f6c7c16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a8559233494a5a68537924dd85f6c7c16">IsGood</a> ()</td></tr>
-<tr class="memdesc:a8559233494a5a68537924dd85f6c7c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">czy wystąpiły błędy  <a href="#a8559233494a5a68537924dd85f6c7c16">More...</a><br /></td></tr>
+<tr class="memdesc:a8559233494a5a68537924dd85f6c7c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if everything is correct  <a href="#a8559233494a5a68537924dd85f6c7c16">More...</a><br /></td></tr>
 <tr class="separator:a8559233494a5a68537924dd85f6c7c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a4bfc6a5d636230bfea652ac6c3afac94"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a4bfc6a5d636230bfea652ac6c3afac94">round_</a></td></tr>
-<tr class="memdesc:a4bfc6a5d636230bfea652ac6c3afac94"><td class="mdescLeft">&#160;</td><td class="mdescRight">określenie gracza wykonującego ruch  <a href="#a4bfc6a5d636230bfea652ac6c3afac94">More...</a><br /></td></tr>
+<tr class="memdesc:a4bfc6a5d636230bfea652ac6c3afac94"><td class="mdescLeft">&#160;</td><td class="mdescRight">which player made the move  <a href="#a4bfc6a5d636230bfea652ac6c3afac94">More...</a><br /></td></tr>
 <tr class="separator:a4bfc6a5d636230bfea652ac6c3afac94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af61ddfd40d608df994312bb3f27447f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#af61ddfd40d608df994312bb3f27447f2">isGood_</a></td></tr>
-<tr class="memdesc:af61ddfd40d608df994312bb3f27447f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">pole przechowuje informacje, czy wystąpiły w trakcie działanie programu błędy  <a href="#af61ddfd40d608df994312bb3f27447f2">More...</a><br /></td></tr>
+<tr class="memdesc:af61ddfd40d608df994312bb3f27447f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">information about errors  <a href="#af61ddfd40d608df994312bb3f27447f2">More...</a><br /></td></tr>
 <tr class="separator:af61ddfd40d608df994312bb3f27447f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbd608fbd8e8d84380b756444e1bf27c"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classPlayer.html">Player</a>, <a class="el" href="classPlayer.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#afbd608fbd8e8d84380b756444e1bf27c">players_</a></td></tr>
-<tr class="memdesc:afbd608fbd8e8d84380b756444e1bf27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">plansze graczy  <a href="#afbd608fbd8e8d84380b756444e1bf27c">More...</a><br /></td></tr>
+<tr class="memdesc:afbd608fbd8e8d84380b756444e1bf27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">players' ships and decisions  <a href="#afbd608fbd8e8d84380b756444e1bf27c">More...</a><br /></td></tr>
 <tr class="separator:afbd608fbd8e8d84380b756444e1bf27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>klasa przechowująca i przetwarzająca dane gry w okręty </p>
+<div class="textblock"><p>class that keeps the state of the game - the battleships </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a922f9d489afd5781e18080d8d014a3f4"></a>
 <div class="memitem">
@@ -152,11 +160,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>stworzenie planszy na podstawie dwóch tablic </p>
-<p>konstruktor na podstawie dwóch tablic tworzy dwie plansze i ustawia na nich statki graczy </p><dl class="params"><dt>Parameters</dt><dd>
+<p>creats players' boards and sets their ships </p>
+<p>ships are sets base on given arrays </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tablica</td><td>na podstawie której ustawiane zostają statki pierwszego gracza </td></tr>
-    <tr><td class="paramname">tablica</td><td>na podstawie której ustawiane zostają statki drugiego gracza </td></tr>
+    <tr><td class="paramname">firstPlayerBoard</td><td>first player's array </td></tr>
+    <tr><td class="paramname">secondPlayerBoard</td><td>second player's array </td></tr>
   </table>
   </dd>
 </dl>
@@ -177,8 +185,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>czy koniec gry </p>
-<p>metoda sprawdza czy nastąpił koniec gry, tzn. czy wszystkie statki któregoś z graczy zostały zatopione </p><dl class="section return"><dt>Returns</dt><dd>true - nastąpił koniec gry; false - nie nastąpił jeszcze koniec gry </dd></dl>
+<p>checks if play is end </p>
+<p>checks if every ships one of players are afloat </p><dl class="section return"><dt>Returns</dt><dd>true - play is end; false - play is not end </dd></dl>
 
 </div>
 </div>
@@ -195,8 +203,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>czy wystąpiły błędy </p>
-<p>metoda sprawdza czy w trakcie działania programu wystąpiły błędy, którego mogą skutkować łamaniem zasad gry </p><dl class="section return"><dt>Returns</dt><dd>true - nie wystąpiły błędy; false - wystąpiły błędy </dd></dl>
+<p>checks if everything is correct </p>
+<p>checks if there are any errors that may cause the program will not run properly </p><dl class="section return"><dt>Returns</dt><dd>true - everything is correct; false - there are errors </dd></dl>
 
 </div>
 </div>
@@ -214,15 +222,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>czy statek został zatopiony </p>
-<p>metoda sprawdza, czy statek przeciwnika gracza, którego kolej (określona za pomocą pola round_), znajdujący się między innymi na danym polu, został zatopiony </p><dl class="params"><dt>Parameters</dt><dd>
+<p>checks if opponent's ship is afloat </p>
+<p>player is determined by the field round_ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>pola </td></tr>
+    <tr><td class="paramname">number</td><td>index of field </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>vektor indexów pól na których leży zatopiony statek, pusty, jeśli nie zatopiony, lub nie ma statku </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a4bfc6a5d636230bfea652ac6c3afac94" title="określenie gracza wykonującego ruch ">round_</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>list of indexes fields, on which the ship is, if ship is afloat. If ship is not afloat or any ship is not on field, list is empty </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a4bfc6a5d636230bfea652ac6c3afac94" title="which player made the move ">round_</a> </dd></dl>
 
 </div>
 </div>
@@ -250,16 +258,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>wykonanie strzału </p>
-<p>gracz wykonuje sprawdzenie danego pola z planszy przeciwnika, możliwa zamiana gracza wykonującego ruch, tzn. wartości pola round_ </p><dl class="params"><dt>Parameters</dt><dd>
+<p>checks opponent's field </p>
+<p>player, which is determined by given index, makes a move and checks one of opponent's field, which index is given, sets the values of the fields round_ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>pola </td></tr>
-    <tr><td class="paramname">index</td><td>określający gracza wykonującego ruch </td></tr>
+    <tr><td class="paramname">number</td><td>index of field </td></tr>
+    <tr><td class="paramname">player</td><td>index of player </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true - na danym polu był statek przeciwnika; false - na danym polu nie było statku przeciwnika </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a4bfc6a5d636230bfea652ac6c3afac94" title="określenie gracza wykonującego ruch ">round_</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true - field is occupied; false - field is unoccupied </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classGame.html#a4bfc6a5d636230bfea652ac6c3afac94" title="which player made the move ">round_</a> </dd></dl>
 
 </div>
 </div>
@@ -282,8 +290,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>pole przechowuje informacje, czy wystąpiły w trakcie działanie programu błędy </p>
-<p>true - nie wystąpiły błędy false - wystąpiły błędy </p>
+<p>information about errors </p>
+<p>true - everything is correct false - there are errors </p>
 
 </div>
 </div>
@@ -305,8 +313,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>plansze graczy </p>
-<p>pole przechowuje dane potrzebne do gry dla poszczególnych graczy </p>
+<p>players' ships and decisions </p>
 
 </div>
 </div>
@@ -328,14 +335,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>określenie gracza wykonującego ruch </p>
-<p>true - ruch wykonuje gracz pierwszy false - ruch wykonuje gracz drugi </p>
+<p>which player made the move </p>
+<p>true - first player false - second player </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>inc/<a class="el" href="game_8h_source.html">game.h</a></li>
-<li>src/game.cc</li>
+<li>src/<a class="el" href="game_8cc.html">game.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

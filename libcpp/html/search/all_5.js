@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['player',['Player',['../classPlayer.html',1,'Player'],['../classPlayer.html#a9ed802fec567f8f0d1a5901f8e4689a2',1,'Player::Player()']]],
-  ['players_5f',['players_',['../classGame.html#afbd608fbd8e8d84380b756444e1bf27c',1,'Game']]],
-  ['pythongame',['PythonGame',['../classPythonGame.html',1,'PythonGame'],['../classPythonGame.html#a12a1ecd5d77131c817614612b92b5cfe',1,'PythonGame::PythonGame()']]]
+  ['field',['Field',['../classField.html',1,'Field'],['../classField.html#a3e804c92273d9159f413f227b535c672',1,'Field::Field()']]],
+  ['field_2ecc',['field.cc',['../field_8cc.html',1,'']]],
+  ['field_2eh',['field.h',['../field_8h.html',1,'']]],
+  ['fields_5f',['fields_',['../classBoard.html#aa7d8efd3cbd504ec47731a97ae97e240',1,'Board']]]
 ];

@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,45 +91,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>klasa odpowiadająca statku  
+<p>presents a ship  
  <a href="classShip.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ship_8h_source.html">ship.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Ship:</div>
+<div class="dyncontent">
+<div class="center"><img src="classShip__coll__graph.png" border="0" usemap="#Ship_coll__map" alt="Collaboration graph"/></div>
+<map name="Ship_coll__map" id="Ship_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac16b34d5f01f16a62f65038d4330abe5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#ac16b34d5f01f16a62f65038d4330abe5">Ship</a> (const std::vector&lt; int &gt; &amp;fields)</td></tr>
-<tr class="memdesc:ac16b34d5f01f16a62f65038d4330abe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">tworzy statek leżacy na podanych polach  <a href="#ac16b34d5f01f16a62f65038d4330abe5">More...</a><br /></td></tr>
+<tr class="memdesc:ac16b34d5f01f16a62f65038d4330abe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">creats the ship in the spaces given  <a href="#ac16b34d5f01f16a62f65038d4330abe5">More...</a><br /></td></tr>
 <tr class="separator:ac16b34d5f01f16a62f65038d4330abe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11caab597b09a289968f8bc560472e85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a11caab597b09a289968f8bc560472e85">GetSize</a> ()</td></tr>
-<tr class="memdesc:a11caab597b09a289968f8bc560472e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">metoda oblicza rozmiar statku  <a href="#a11caab597b09a289968f8bc560472e85">More...</a><br /></td></tr>
+<tr class="memdesc:a11caab597b09a289968f8bc560472e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">checking the size of the ship  <a href="#a11caab597b09a289968f8bc560472e85">More...</a><br /></td></tr>
 <tr class="separator:a11caab597b09a289968f8bc560472e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0020c27e96c7e83c834e78cf16a5df74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a0020c27e96c7e83c834e78cf16a5df74">GetIsAfloat</a> ()</td></tr>
-<tr class="memdesc:a0020c27e96c7e83c834e78cf16a5df74"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza czy statek jest zatopiony  <a href="#a0020c27e96c7e83c834e78cf16a5df74">More...</a><br /></td></tr>
+<tr class="memdesc:a0020c27e96c7e83c834e78cf16a5df74"><td class="mdescLeft">&#160;</td><td class="mdescRight">checking if the ship is sunk  <a href="#a0020c27e96c7e83c834e78cf16a5df74">More...</a><br /></td></tr>
 <tr class="separator:a0020c27e96c7e83c834e78cf16a5df74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41265cfd8c9c3592d312ca111ce9e907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a41265cfd8c9c3592d312ca111ce9e907">Sunk</a> ()</td></tr>
-<tr class="memdesc:a41265cfd8c9c3592d312ca111ce9e907"><td class="mdescLeft">&#160;</td><td class="mdescRight">zatopienie statku  <a href="#a41265cfd8c9c3592d312ca111ce9e907">More...</a><br /></td></tr>
+<tr class="memdesc:a41265cfd8c9c3592d312ca111ce9e907"><td class="mdescLeft">&#160;</td><td class="mdescRight">sunks the ship  <a href="#a41265cfd8c9c3592d312ca111ce9e907">More...</a><br /></td></tr>
 <tr class="separator:a41265cfd8c9c3592d312ca111ce9e907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a914855976d0b2cd6279e363a441103f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a914855976d0b2cd6279e363a441103f8">IsInField</a> (int number)</td></tr>
-<tr class="memdesc:a914855976d0b2cd6279e363a441103f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">sprawdza czy statek leży na danym polu  <a href="#a914855976d0b2cd6279e363a441103f8">More...</a><br /></td></tr>
+<tr class="memdesc:a914855976d0b2cd6279e363a441103f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">cheking position the ship  <a href="#a914855976d0b2cd6279e363a441103f8">More...</a><br /></td></tr>
 <tr class="separator:a914855976d0b2cd6279e363a441103f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4df68c7b36e527220dda786c3d21848d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a4df68c7b36e527220dda786c3d21848d">GetIndex</a> ()</td></tr>
-<tr class="memdesc:a4df68c7b36e527220dda786c3d21848d"><td class="mdescLeft">&#160;</td><td class="mdescRight">pobranie numery pól, na których leży statek  <a href="#a4df68c7b36e527220dda786c3d21848d">More...</a><br /></td></tr>
+<tr class="memdesc:a4df68c7b36e527220dda786c3d21848d"><td class="mdescLeft">&#160;</td><td class="mdescRight">cheking position the ship  <a href="#a4df68c7b36e527220dda786c3d21848d">More...</a><br /></td></tr>
 <tr class="separator:a4df68c7b36e527220dda786c3d21848d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a4dcfae68632ccf3a37ad5ba93933b93d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4dcfae68632ccf3a37ad5ba93933b93d"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d">body_</a></td></tr>
-<tr class="memdesc:a4dcfae68632ccf3a37ad5ba93933b93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">lista indexów pól na których leży statek <br /></td></tr>
+<tr class="memitem:a4dcfae68632ccf3a37ad5ba93933b93d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d">body_</a></td></tr>
+<tr class="memdesc:a4dcfae68632ccf3a37ad5ba93933b93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">lindexes of the fields on which the ship is  <a href="#a4dcfae68632ccf3a37ad5ba93933b93d">More...</a><br /></td></tr>
 <tr class="separator:a4dcfae68632ccf3a37ad5ba93933b93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36a90f08e2f68398c09eaae540a661b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4">is_afloat_</a></td></tr>
-<tr class="memdesc:a36a90f08e2f68398c09eaae540a661b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">przechowuje informację o zatopieniu statku  <a href="#a36a90f08e2f68398c09eaae540a661b4">More...</a><br /></td></tr>
+<tr class="memdesc:a36a90f08e2f68398c09eaae540a661b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">information about the sinking of the ship  <a href="#a36a90f08e2f68398c09eaae540a661b4">More...</a><br /></td></tr>
 <tr class="separator:a36a90f08e2f68398c09eaae540a661b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>klasa odpowiadająca statku </p>
-<p>kontener przytrzymujący i przetwarzający dane o statku: na których polach stoi statek, czy został zatopiony, jakiego jest rozmiaru </p>
+<div class="textblock"><p>presents a ship </p>
+<p>stores information about the ship: size, position, state </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac16b34d5f01f16a62f65038d4330abe5"></a>
 <div class="memitem">
@@ -144,10 +151,10 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
       </table>
 </div><div class="memdoc">
 
-<p>tworzy statek leżacy na podanych polach </p>
+<p>creats the ship in the spaces given </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lista</td><td>indexów pól na których stoi statek </td></tr>
+    <tr><td class="paramname">fields</td><td>list of space indexes </td></tr>
   </table>
   </dd>
 </dl>
@@ -168,9 +175,9 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
       </table>
 </div><div class="memdoc">
 
-<p>pobranie numery pól, na których leży statek </p>
-<p>metoda zwraca indexy pól znajdujących się na liście body_ </p><dl class="section return"><dt>Returns</dt><dd>numery pól na których leży statek </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
+<p>cheking position the ship </p>
+<dl class="section return"><dt>Returns</dt><dd>indexes, which are on the list body_ </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lindexes of the fields on which the ship is ">body_</a> </dd></dl>
 
 </div>
 </div>
@@ -187,9 +194,9 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
       </table>
 </div><div class="memdoc">
 
-<p>sprawdza czy statek jest zatopiony </p>
-<p>metoda sprawdza wartość pola is_afloat_ </p><dl class="section return"><dt>Returns</dt><dd>zwraca wartość pola is_afloat_ </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4" title="przechowuje informację o zatopieniu statku ">is_afloat_</a> </dd></dl>
+<p>checking if the ship is sunk </p>
+<p>checks the value of the field is_afloat_ </p><dl class="section return"><dt>Returns</dt><dd>the value of the field is_afloat_ </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4" title="information about the sinking of the ship ">is_afloat_</a> </dd></dl>
 
 </div>
 </div>
@@ -206,9 +213,9 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
       </table>
 </div><div class="memdoc">
 
-<p>metoda oblicza rozmiar statku </p>
-<p>metoda sprawdza rozmiar listy indexów pól na których stoi statek body_ </p><dl class="section return"><dt>Returns</dt><dd>ilość pól zajmowanych przez statek </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
+<p>checking the size of the ship </p>
+<p>checks size of list of indexes body_ </p><dl class="section return"><dt>Returns</dt><dd>size of ship </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lindexes of the fields on which the ship is ">body_</a> </dd></dl>
 
 </div>
 </div>
@@ -226,15 +233,15 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
       </table>
 </div><div class="memdoc">
 
-<p>sprawdza czy statek leży na danym polu </p>
-<p>metoda sprawdza czy dany index jest na liście body_ </p><dl class="params"><dt>Parameters</dt><dd>
+<p>cheking position the ship </p>
+<p>checks if there is the ship on the field with the given index, if the index is on the list body_ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>pola </td></tr>
+    <tr><td class="paramname">number</td><td>index of field </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true - statek leży na danym polu; false - statek nie leży na danym polu </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true - the ship is on the field; false - the ship is not on the field </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lindexes of the fields on which the ship is ">body_</a> </dd></dl>
 
 </div>
 </div>
@@ -251,12 +258,34 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
       </table>
 </div><div class="memdoc">
 
-<p>zatopienie statku </p>
-<p>metoda ustwia wartość pola is_afloat_ na true </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4" title="przechowuje informację o zatopieniu statku ">is_afloat_</a> </dd></dl>
+<p>sunks the ship </p>
+<p>sets the value of the field is_afloat_ to true </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a36a90f08e2f68398c09eaae540a661b4" title="information about the sinking of the ship ">is_afloat_</a> </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a4dcfae68632ccf3a37ad5ba93933b93d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt; Ship::body_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>lindexes of the fields on which the ship is </p>
+
+</div>
+</div>
 <a class="anchor" id="a36a90f08e2f68398c09eaae540a661b4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -275,14 +304,14 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a c
 </table>
 </div><div class="memdoc">
 
-<p>przechowuje informację o zatopieniu statku </p>
-<p>przechowuje informację o sprawdzeniu wszystkich pól, których indexy znajdują się na liście body_ true - statek został zatopiony, wszystkie pola zostały sprawdzone false - statek nie został zatopiony </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lista indexów pól na których leży statek ">body_</a> </dd></dl>
+<p>information about the sinking of the ship </p>
+<p>the ship is afloat if all the spaces, on which it is, have been checked true - the ship is afloat false - the ship has not been afloat yet </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classShip.html#a4dcfae68632ccf3a37ad5ba93933b93d" title="lindexes of the fields on which the ship is ">body_</a> </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>inc/<a class="el" href="ship_8h_source.html">ship.h</a></li>
-<li>src/ship.cc</li>
+<li>src/<a class="el" href="ship_8cc.html">ship.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
