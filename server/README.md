@@ -8,5 +8,14 @@ We also use gunicorn module that creates a WSGI HTTP server on which we run our 
 
 In order to run the server we need all the requirements listed in requirements.txt.<br>
 In the virtual enviorment (venv folder) all neccessary dependencies are already installed.<br>
-To activate it run 'source venv/bin/activate'<br>
-Get into server directory and type 'gunicorn --threads 50 app:app' to run it.
+To activate it run
+''' shell
+source venv/bin/activate
+'
+.<br>
+Get into server directory and type
+
+''' shell
+gunicorn --threads 50 app:app
+'''
+to run it.
