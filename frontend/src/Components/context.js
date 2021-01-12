@@ -19,9 +19,14 @@ const AppProvider = ({children}) => {
   });
   const [playerNumber, setPlayerNumber] = useState(-1);
   const [socket, setSocket] = useState(null);
-  const [socketConnected, setSocketConnected] = useState(false);
   const [playerTurn, setPlayerTurn] = useState(-2);
   const [ships, setShips] = useState(shipsArray);
+
+  const resetBoard = () => {
+    setPlayerBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, fieldState: 'empty'})}));
+    setOpponentBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, isChecked: false, fieldState: 'empty'})}));
+    setShips(shipsArray);
+  }
 
 
   useEffect(() => {
@@ -32,29 +37,29 @@ const AppProvider = ({children}) => {
     if(!socket) return
 
     socket.on('connect', () => {
-      setSocketConnected(true);
       console.log('connected');
-    })
+    });
 
     socket.on('disconnect', () => {
-      setSocketConnected(false)
       console.log('disconnected');
-    })
-    
-    socket.on('player-disconnected', () => {
-      alert("Player disconnected")
-    })
+    });
 
     socket.on('player-number', (number) => {
       if(parseInt(number) !== -1) {
         setPlayerNumber(number)
-        console.log("Player number is", number);
       }
-    })
+    });
 
     socket.on('player-turn', (number) => {
       setPlayerTurn(parseInt(number));
-    })
+    });
+
+    socket.on('bad-board', () => {
+      alert("One of the players connected with faulty board!");
+      setPlayerNumber(-1);
+      setPlayerTurn(-2);
+      resetBoard();
+    });
 
     socket.on('fire', (object) => {
       const {hit, field} = object;
@@ -62,21 +67,52 @@ const AppProvider = ({children}) => {
       let newPlayerBoard = [...playerBoard];
       newPlayerBoard[field].fieldState = newState;
       setPlayerBoard(newPlayerBoard);
-    })
+    });
 
-    socket.on('game-over', () => {
-      alert("GameOVER you have won!")
+    socket.on('game-over-win', () => {
+      setPlayerBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, fieldState: 'empty'})}));
+      setOpponentBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, isChecked: false, fieldState: 'empty'})}));
+      setShips(shipsArray);
+      setPlayerTurn(-2);
       setPlayerNumber(-1);
-      resetBoard();
-    })
+      alert("Game over you've won!");
+    });
+
+    socket.on('game-over-left', () => {
+      setPlayerBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, fieldState: 'empty'})}));
+      setOpponentBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, isChecked: false, fieldState: 'empty'})}));
+      setShips(shipsArray);
+      setPlayerTurn(-2);
+      setPlayerNumber(-1);
+      alert("Game over opponent has left the game!");
+    });
+
+    socket.on('isHit', ({hit, field}) => {
+      const newState = hit ? "hit" : "missed";
+      let newOpponentBoard = [...opponentBoard];
+      newOpponentBoard[field].fieldState = newState;
+      newOpponentBoard[field].isChecked = true;
+      setOpponentBoard(newOpponentBoard);
+    });
+
+    socket.on('game-over-lost', () => {
+      setPlayerBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, fieldState: 'empty'})}));
+      setOpponentBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, isChecked: false, fieldState: 'empty'})}));
+      setShips(shipsArray);
+      setPlayerTurn(-2);
+      setPlayerNumber(-1);
+      alert("Game over you've lost");
+    });
+
+    socket.on('sunked', (sunkedShip) => {
+      let newOppoenentBoard = [...opponentBoard];
+      sunkedShip.map((sunkedIdx) => {
+        newOppoenentBoard[sunkedIdx].fieldState = "taken hit"
+      })
+      setOpponentBoard(newOppoenentBoard);
+    });
 
   }, [socket])
-
-  const resetBoard = () => {
-    setPlayerBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, fieldState: 'empty'})}));
-    setOpponentBoard(Array.from(Array(100).keys()).map((idx) => {return({id: idx, isChecked: false, fieldState: 'empty'})}));
-    setShips(shipsArray);
-  }
 
   return <AppContext.Provider 
   value={{ 
@@ -91,7 +127,7 @@ const AppProvider = ({children}) => {
       playerTurn,
       socket,
       ships,
-      setShips
+      setShips,
     }}>
     {children}
   </AppContext.Provider>

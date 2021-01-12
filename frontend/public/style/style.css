@@ -107,7 +107,6 @@
   width: calc(4.6vmin * var(--width, 1));
   height: calc(4.6vmin * var(--height, 1));
   margin: 1vmin;
-  /* border-radius: 2.3vmin; */
 }
 
 .taken,
@@ -155,9 +154,6 @@
 
 .frigate-vertical {
   --height: 4;
-}
-
-.patrol-vertical {
 }
 
 .carrier-vertical {

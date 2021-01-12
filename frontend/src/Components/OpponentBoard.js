@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useGlobalContext } from "./context";
 import OpponentField from "./OpponentField";
 
@@ -8,13 +8,7 @@ const OpponentBoard = () => {
   const onClick = (e) => {
     const markedField = parseInt(e.target.id);
     if(markedField < 100 && playerTurn === playerNumber && !opponentBoard[markedField].isChecked) {
-      socket.emit('shoot', { field: markedField }, (isHit) => {
-        const newState = isHit ? "hit" : "missed";
-        let newOpponentBoard = [...opponentBoard];
-        newOpponentBoard[markedField].fieldState = newState;
-        newOpponentBoard[markedField].isChecked = true;
-        setOpponentBoard(newOpponentBoard);
-      })      
+      socket.emit('shoot', { field: markedField } )      
     } 
   }
 

@@ -4,7 +4,6 @@ import OpponentBorad from "./OpponentBoard"
 import DisplayBoard from "./DisplayBoard";
 import { useGlobalContext } from "./context";
 import Notifications from "./Notifications";
-import { pBoard } from "./data";
 
 
 const convertBoardToBool = (board) => {
@@ -36,7 +35,7 @@ const isBoardCorrect = (board) => {
 
 const GameContainer = () => {
 
-  const { playerBoard, resetBoard, socket } = useGlobalContext();
+  const { playerNumber, playerBoard, resetBoard, socket } = useGlobalContext();
 
   const joinGame = () => {
     if(isBoardCorrect(convertBoardToBool(playerBoard))) { 
@@ -55,12 +54,8 @@ const GameContainer = () => {
         <OpponentBorad/>
         </div>
       <div className="button-container">
-      <button className="btn" onClick={joinGame}>
-        Play
-      </button >
-      <button className="btn" onClick={() => {resetBoard()}}>
-        Reset Board
-      </button>
+      {playerNumber === -1 && <button className="btn" onClick={joinGame}>Play</button >}
+      {playerNumber === -1 && <button className="btn" onClick={() => {resetBoard()}}>Reset Board</button>}
       </div>
       <DisplayBoard />
     </div>

@@ -10,19 +10,6 @@ players = [None, None]
 gameInstace = None
 playerTurn = 0
 
-"""
-[
-    {
-        "sid" : number,
-        "board" : []
-    },
-    {
-        "sid" : number,
-        "board" : []
-    }
-]
-"""
-
 
 @sio.event
 def connect(sid, environ):
@@ -32,27 +19,58 @@ def connect(sid, environ):
 @sio.event
 def disconnect(sid):
     print(f"{sid} disconnected")
+    global playerTurn
+    global gameInstace
+    global players
+
     for i, player in enumerate(players):
         if(player != None and player["sid"] == sid):
+            print("One of the players has left the game")
             winnerIDX = 0 if i == 1 else 1
-            winner = players[winnerIDX]["sid"]
-            sio.emit('game-over', to=winner)
-            players[0] = None
-            players[1] = None
+            if players[winnerIDX] != None:
+                winnerSID = players[winnerIDX]["sid"]
+                sio.emit('game-over-left', to=winnerSID)
+            players = [None, None]
             gameInstace = None
             playerTurn = 0
-            print(f"Player {i} has disconected GAME OVER!")
             return
+
+
+def finishGame():
+    global playerTurn
+    global players
+    global gameInstace
+    for idx, player in enumerate(players):
+        playerSID = player["sid"]
+        if idx == playerTurn and player != None:
+            sio.emit('game-over-win', to=playerSID)
+        else:
+            sio.emit('game-over-lost', to=playerSID)
+    players = [None, None]
+    gameInstace = None
+    playerTurn = 0
+
+
+def changePlayer():
+    global playerTurn
+    playerTurn = 1 if playerTurn == 0 else 0
+    for player in players:
+        playerSID = player["sid"]
+        sio.emit('player-turn', playerTurn, to=playerSID)
 
 
 @sio.event
 def shoot(sid, data):
     opponentSID = -1
+    playerSID = -1
 
+    global players
     if(players[0]["sid"] == sid):
         opponentSID = players[1]["sid"]
+        playerSID = players[0]["sid"]
     else:
         opponentSID = players[0]["sid"]
+        playerSID = players[1]["sid"]
 
     global gameInstace
     global playerTurn
@@ -61,28 +79,26 @@ def shoot(sid, data):
     player = playerTurn + 1
     isHit = gameInstace.Shot(field, player)
 
+    sio.emit('isHit', {"hit": isHit, "field": field}, to=sid)
     sio.emit('fire', {"hit": isHit, "field": field}, to=opponentSID)
 
-    if not isHit:
-        playerTurn = 1 if playerTurn == 0 else 0
-        for player in players:
-            playerSID = player["sid"]
-            sio.emit('player-turn', playerTurn, to=playerSID)
+    sunkedShip = gameInstace.IsSunk(field)
+
+    if sunkedShip:
+        sio.emit('sunked', sunkedShip, to=playerSID)
 
     if gameInstace.IsEnd():
-        for player in players:
-            playerSID = player["sid"]
-            sio.emit('game-over', to=playerSID)
+        finishGame()
+    else:
+        if not isHit:
+            changePlayer()
 
-    return isHit
 
-
-@sio.event
+@ sio.event
 def join(sid, data):
-    print(f"Player {sid} has joined")
     playerNumber = -1
 
-    # CHECK FOR HTE SAME PLAYER JOINING
+    global players
     for i, player in enumerate(players):
         if(player == None):
             playerNumber = i
@@ -102,12 +118,14 @@ def join(sid, data):
     global gameInstace
 
     if players[0] != None and players[1] != None:
-        print("Start the game!")
         gameInstace = pythonGame.Game(players[0]["board"], players[1]["board"])
-        for player in players:
-            playerSID = player["sid"]
-            sio.emit('player-turn', playerTurn, to=playerSID)
-
-        # Create new gameinstance and nofiy users that game began
-        # Check if everything is all right
-        pass
+        if not gameInstace.IsGood():
+            for player in players:
+                playerSID = player["sid"]
+                sio.emit('bad-board', to=playerSID)
+            players = [None, None]
+            gameInstace = None
+        else:
+            for player in players:
+                playerSID = player["sid"]
+                sio.emit('player-turn', playerTurn, to=playerSID)
