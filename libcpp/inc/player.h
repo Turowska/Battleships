@@ -6,6 +6,9 @@
 #include "board.h"
 #include "ship.h"
 
+#define COUNT_SHIPS 5
+#define COUNT_OCCUPIED_FIELDS 15
+
 /**
 * @brief presents a single player
 *

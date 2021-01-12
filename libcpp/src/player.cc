@@ -3,6 +3,7 @@
 #include <iostream>
 
 Player::Player(const std::array<bool, 100>& fields) : board_(fields), isGood_(true) {
+    int count = 0;
     for (int i = 0; i < 100; ++i) {
 	if (fields[i] && (i<10 || !fields[i-10]) &&
         (i%10==0 || !fields[i-1])) {
@@ -11,12 +12,14 @@ Player::Player(const std::array<bool, 100>& fields) : board_(fields), isGood_(tr
 		return;
 	    }
 	    std::vector<int> ship;
+	    ++count;
 	    ship.push_back(i);
 	    for (int j = i+1; j%10!=0 && fields[j]; ++j) {
 		if (j<90 && j%10!=9 && fields[j+11]) {
 		    isGood_ = false;
 		    return;
 	        }
+		++count;
 		ship.push_back(j);
 	    }
 	    for (int j = i+10; j<100 && fields[j]; j += 10) {
@@ -24,10 +27,14 @@ Player::Player(const std::array<bool, 100>& fields) : board_(fields), isGood_(tr
 		    isGood_ = false;
 		    return;
 	        }
+		++count;
 		ship.push_back(j);
 	    }
 	    ships_.push_back(Ship(ship));
 	}
+    }
+    if(count!=COUNT_OCCUPIED_FIELDS||ships_.size()!=COUNT_SHIPS){
+	isGood_ = false;
     }
 }
 
