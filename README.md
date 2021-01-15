@@ -1,4 +1,4 @@
-#BattleShips Game
+# BattleShips Game
 <br>It is a logical web game of "Battleships".<br>
 <img src="images/screenshot1.png"><br>
 <img src="images/screenshot2.png"><br>
