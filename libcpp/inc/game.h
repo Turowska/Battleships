@@ -20,8 +20,8 @@ class Game {
 	* @param firstPlayerBoard first player's array
 	* @param secondPlayerBoard second player's array
 	*/
-	Game(const std::array<bool, 100>& firstPlayersBoard,
-       const std::array<bool, 100>& secondPlayersBoard);
+	Game(const std::array<bool, ROWS*COLUMNS>& firstPlayersBoard,
+       const std::array<bool, ROWS*COLUMNS>& secondPlayersBoard);
 	/**
 	* @brief checks opponent's field
 	*

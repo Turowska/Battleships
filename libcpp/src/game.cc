@@ -3,10 +3,9 @@
 
 #include <iostream>
 
-//#include <boost/python.hpp>
 
-Game::Game(const std::array<bool, 100>& firstPlayersBoard,
-           const std::array<bool, 100>& secondPlayersBoard)
+Game::Game(const std::array<bool, ROWS*COLUMNS>& firstPlayersBoard,
+           const std::array<bool, ROWS*COLUMNS>& secondPlayersBoard)
     : round_(true), isGood_(true),
       players_(Player(firstPlayersBoard), Player(secondPlayersBoard)) {
     if(!players_.first.IsGood()||!players_.second.IsGood()) {

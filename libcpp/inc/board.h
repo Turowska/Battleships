@@ -4,6 +4,9 @@
 #include <array>
 #include "field.h"
 
+#define ROWS 10
+#define COLUMNS 10
+
 /**
 * @brief presents the player's board
 *
@@ -18,7 +21,7 @@ class Board {
 	* the occupation of a given field is set to the value of the field in a given array
 	* @param fields board with the arrangement of ships
 	*/
-	Board(const std::array<bool, 100>& fields);
+	Board(const std::array<bool, ROWS*COLUMNS>& fields);
 	/**
 	* @brief checks the occupation of the field with the given index
 	*
@@ -46,7 +49,7 @@ class Board {
 	/**
 	* array of field
 	*/
-	std::array<Field, 100> fields_;
+	std::array<Field, ROWS*COLUMNS> fields_;
 };
 
 #endif  // BATTLESHIPS_LIBCPP_INC_BOARD_H_

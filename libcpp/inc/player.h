@@ -23,7 +23,7 @@ class Player {
 	* creates and sets the ships based on array given
 	* @param fields array with occupancy of fields
 	*/
-	Player(const std::array<bool, 100>& fields);
+	Player(const std::array<bool, ROWS*COLUMNS>& fields);
 	/**
 	* @brief allows the opponent to move
 	*

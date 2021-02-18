@@ -6,12 +6,12 @@
 using namespace boost::python;
 
 PythonGame::PythonGame(list tabListFirstPlayer, list tabListSecondPlayer): isGood_(true) {
-    if(len(tabListFirstPlayer)!=100||len(tabListSecondPlayer)!=100){
+    if(len(tabListFirstPlayer)!=ROWS*COLUMNS||len(tabListSecondPlayer)!=ROWS*COLUMNS){
 	isGood_ = false;
     } else {
-	std::array<bool, 100> tabArrayFirstPlayer;
-	std::array<bool, 100> tabArraySecondPlayer;
-	for(int i = 0; i < 100; ++i){
+	std::array<bool, ROWS*COLUMNS> tabArrayFirstPlayer;
+	std::array<bool, ROWS*COLUMNS> tabArraySecondPlayer;
+	for(int i = 0; i < ROWS*COLUMNS; ++i){
 	    tabArrayFirstPlayer[i] = extract<bool>(tabListFirstPlayer[i]);
 	    tabArraySecondPlayer[i] = extract<bool>(tabListSecondPlayer[i]);
 	} 

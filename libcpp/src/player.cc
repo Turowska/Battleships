@@ -2,28 +2,28 @@
 
 #include <iostream>
 
-Player::Player(const std::array<bool, 100>& fields) : board_(fields), isGood_(true) {
+Player::Player(const std::array<bool, ROWS*COLUMNS>& fields) : board_(fields), isGood_(true) {
     int count = 0;
-    for (int i = 0; i < 100; ++i) {
-	if (fields[i] && (i<10 || !fields[i-10]) &&
-        (i%10==0 || !fields[i-1])) {
-	    if ((i<90 && i%10!=0 && fields[i+9])||(i<90 && i%10!=9 && fields[i+11])||(i<90 && i%10!=9 && fields[i+1] && fields[i+10])) {
+    for (int i = 0; i < ROWS*COLUMNS; ++i) {
+	if (fields[i] && (i<COLUMNS || !fields[i-COLUMNS]) &&
+        (i%COLUMNS==0 || !fields[i-1])) {
+	    if ((i<ROWS*COLUMNS-COLUMNS && i%COLUMNS!=0 && fields[i+COLUMNS-1])||(i<ROWS*COLUMNS-COLUMNS && i%COLUMNS!=COLUMNS-1 && fields[i+COLUMNS+1])||(i<ROWS*COLUMNS-COLUMNS && i%COLUMNS!=COLUMNS-1 && fields[i+1] && fields[i+COLUMNS])) {
 		isGood_ = false;
 		return;
 	    }
 	    std::vector<int> ship;
 	    ++count;
 	    ship.push_back(i);
-	    for (int j = i+1; j%10!=0 && fields[j]; ++j) {
-		if (j<90 && j%10!=9 && fields[j+11]) {
+	    for (int j = i+1; j%COLUMNS!=0 && fields[j]; ++j) {
+		if (j<ROWS*COLUMNS-COLUMNS && j%COLUMNS!=COLUMNS-1 && fields[j+COLUMNS+1]) {
 		    isGood_ = false;
 		    return;
 	        }
 		++count;
 		ship.push_back(j);
 	    }
-	    for (int j = i+10; j<100 && fields[j]; j += 10) {
-		if ((j<90 && j%10!=0 && fields[j+9])||(j<90 && j%10!=9 && fields[j+11])) {
+	    for (int j = i+COLUMNS; j<ROWS*COLUMNS && fields[j]; j += 10) {
+		if ((j<ROWS*COLUMNS-COLUMNS && j%COLUMNS!=0 && fields[j+COLUMNS-1])||(j<ROWS*COLUMNS-COLUMNS && j%COLUMNS!=COLUMNS-1 && fields[j+COLUMNS+1])) {
 		    isGood_ = false;
 		    return;
 	        }
@@ -43,7 +43,7 @@ bool Player::Shot(int number) {
 	return false;
     }
     int i = number - 1;
-    while (i % 10 != 9 && i != -1 && board_.GetIsOccupied(i)) {
+    while (i % COLUMNS != COLUMNS-1 && i != -1 && board_.GetIsOccupied(i)) {
 	if (!board_.GetIsHit(i)) {
 	    return true;
 	}
@@ -51,26 +51,26 @@ bool Player::Shot(int number) {
     }
 
     i = number + 1;
-    while (i % 10 != 0 && board_.GetIsOccupied(i)) {
+    while (i % COLUMNS != 0 && board_.GetIsOccupied(i)) {
 	if (!board_.GetIsHit(i)) {
 	    return true;
 	}
 	++i;
     }
 
-    i = number - 10;
+    i = number - COLUMNS;
     while (i >= 0 && board_.GetIsOccupied(i)) {
 	if (!board_.GetIsHit(i)) {
 	    return true;
 	}
-	i -= 10;
+	i -= COLUMNS;
     }
-    i = number + 10;
-    while (i < 100 && board_.GetIsOccupied(i)) {
+    i = number + COLUMNS;
+    while (i < ROWS*COLUMNS && board_.GetIsOccupied(i)) {
 	if (!board_.GetIsHit(i)) {
 	    return true;
 	}
-	i += 10;
+	i += COLUMNS;
     }
     Sunk(number);
     return true;

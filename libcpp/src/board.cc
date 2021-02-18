@@ -1,6 +1,6 @@
 #include "board.h"
 
-Board::Board(const std::array<bool, 100>& fields) {
+Board::Board(const std::array<bool, ROWS*COLUMNS>& fields) {
     auto j = fields_.begin();
 	for (auto i = fields.begin(); i != fields.end() && j != fields_.end(); ++i, ++j) {
     	    (*j).SetIsOccupied(*i);
